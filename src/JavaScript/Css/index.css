@@ -1,0 +1,177 @@
+body {
+    background-color: white;
+    margin: 0;
+}
+
+code {
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+a {
+    color: #282c34;
+    text-decoration: none;
+}
+
+a:visited {
+    color: #282c34;
+    text-decoration: none;
+}
+
+a:hover {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+a:active {
+    color: goldenrod;
+    text-decoration: none;
+}
+
+.logo {
+    position: relative;
+    background-size: cover;
+    width: 1900px;
+    margin: 0 auto;
+}
+
+.logo img {
+    width: 1900px;
+    height: auto;
+}
+
+.text-block {
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+    bottom: 30px;
+    left: 180px;
+    background: rgba(49, 31, 31, 0.5);
+    color: white;
+    padding-left: 20px;
+    padding-right: 20px;
+    text-align: left;
+}
+
+.challengeBar {
+    width: 30%;
+    height: 25px;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    display: inline-block;
+    -webkit-box-shadow: -1px 15px 34px -19px rgba(0, 0, 0, 0.7);
+    -moz-box-shadow: -1px 15px 34px -19px rgba(0, 0, 0, 0.7);
+    box-shadow: -1px 15px 34px -19px rgba(0, 0, 0, 0.7);
+}
+
+.challengeBar25 {
+    width: 25%;
+    height: 100%;
+    background-color: #009933;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.challengeBar50 {
+    width: 50%;
+    height: 100%;
+    background-color: gold;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.challengeBar75 {
+    width: 75%;
+    height: 100%;
+    background-color: #ffad33;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.challengeBar100 {
+    width: 100%;
+    height: 100%;
+    background-color: #cc0000;
+    border-right: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.icon {
+    width: 40px;
+    height: 40px;
+}
+
+.photo {
+    height: 120px;
+}
+
+.photo-w-100P {
+    width: 100%;
+}
+
+.photo-w-120 {
+    width: 120px;
+}
+
+.photo-horizontal {
+    height: 120px;
+}
+
+.photo-horizontal-long {
+    height: 180px;
+}
+
+.photo-medium {
+    height: 180px;
+}
+
+.tools {
+    width: 93%;
+    height: 100%;
+    background-color: rgb(240, 240, 240);
+    font-family: 'Poppins', sans-serif;
+    padding: 10px 40px 10px 40px;
+}
+
+.regularTable {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 40px;
+}
+
+.regularTable td,
+#customers th {
+    border: 1px solid #ddd;
+    padding: 8px;
+    width: 7.69%
+}
+
+.regularTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.regularTable th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: white;
+    color: black;
+}
+
+.contentTile {
+    width: 100%;
+    display: inline-block;
+    margin-top: 20px;
+    padding: 0;
+}
+
+.contentTileImage {
+    width: 20%;
+    display: inline-block;
+    margin: 10px 0px 10px 0px;
+    padding: 0;
+    text-align: center;
+}
+
+.contentTileText {
+    width: 80%;
+    display: inline-block;
+    margin: 0px;
+    padding: 0;
+    position: relative;
+}

@@ -1,0 +1,47 @@
+.section-parent {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 20px 0px 20px 0px;
+}
+
+.section-block {
+    width: 45%;
+    border: 1px;
+    margin: 10px auto;
+}
+
+.section-block-long {
+    width: 90%;
+    border: 1px;
+    margin: 10px auto;
+    display: flex;
+}
+
+.section-block-symbol {
+    align-items: center;
+    display: flex;
+    width: 20%;
+}
+
+.section-block-symbol img {
+    width: 80%;
+    margin: auto;
+}
+
+.warning-yellow {
+    background-color: rgb(255, 208, 0);
+    margin: 0 20px 0 20px;
+    padding: 10px 20px 10px 20px;
+}
+
+.warning-green {
+    background-color: green;
+    margin: 0 20px 0 20px;
+    padding: 10px 20px 10px 20px;
+}
+
+.warning-red {
+    background-color: red;
+    margin: 0 20px 0 20px;
+    padding: 10px 20px 10px 20px;
+}
