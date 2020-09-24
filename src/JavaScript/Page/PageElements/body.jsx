@@ -7,6 +7,9 @@ import { Route, Switch, Link } from "react-router-dom";
 import Main from '../../Content/News/main.jsx';
 //Garage
 import Garage from '../../Content/Garage/garage.jsx';
+import AddBicycle from '../../Content/Garage/add-bicycle-form.jsx';
+import GetBicycle from '../../Content/Garage/getBicycle.jsx';
+
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
 //Parts
@@ -47,9 +50,11 @@ const PageBody = () => {
                 <Route path="/" exact component={Main} />
                 {/* GARAGE */}
                 <Route path="/garage" exact component={Garage} />
+                <Route path="/garage/new" exact component={AddBicycle} />
+                <Route path="/garage/:id" exact component={GetBicycle} />
                 {/* BICYCLES */}
                 <Route path="/bicycles" exact component={Bicycles} />
-                {/* Parts */}
+                {/* PARTS */}
                 <Route path="/parts" exact component={Parts} />
 
             </Switch>

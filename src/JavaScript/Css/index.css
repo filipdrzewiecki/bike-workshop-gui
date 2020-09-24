@@ -175,3 +175,47 @@ a:active {
     padding: 0;
     position: relative;
 }
+
+.bicycle {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.Field {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    display: block;
+    margin-bottom: 15px;
+}
+
+.Field input {
+    width: 40%;
+}
+
+.Field label {
+    display: block;
+    margin-bottom: 5px;
+}
+
+.error {
+    color: darkred;
+    font-weight: 200;
+}
+
+.button {
+    background-color: #282c34;
+    border: none;
+    color: white;
+    padding: 12px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    transition-duration: 0.2s;
+    cursor: pointer;
+}
+
+.button:hover {
+    border: 2px solid #282c34;
+    background-color: white;
+    color: #282c34;
+}

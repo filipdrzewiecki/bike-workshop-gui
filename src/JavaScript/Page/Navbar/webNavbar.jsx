@@ -16,9 +16,9 @@ const Navbar = () => {
                 </div>
                 
                 <div className="navbarButtons_web" >
-                    <Link to = "/service" > Twoje rowery </Link>
-                    <Link to = "/maintenance" > Katalog rowerów </Link>
-                    <Link to = "/compatibility" > Katalog części </Link>
+                    <Link to = "/garage" > Twoje rowery </Link>
+                    <Link to = "/bicycles" > Katalog rowerów </Link>
+                    <Link to = "/parts" > Katalog części </Link>
                 </div>
             </div>
         </div>
