@@ -2,6 +2,10 @@ import bikeWorkshop from './bike-workshop-service.jsx'
 import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYCLE } from '../../actions/types.jsx'
 import history from '../../../history';
 
+const refreshPage = ()=>{
+    window.location.reload();
+ }
+
 export const createBicycle = formValues =>  async dispatch => {
     const response = await bikeWorkshop.post('/bicycles', formValues);
 
@@ -25,10 +29,13 @@ export const updateBicycle = (id, formValues) =>  async dispatch => {
     const response = await bikeWorkshop.put(`/bicycles/${id}`, formValues);
 
     dispatch({type: UPDATE_BICYCLE, payload: response.data});
+    history.push('/garage')
 }
 
 export const deleteBicycle = (id) =>  async dispatch => {
-    await bikeWorkshop.delete(`/bicycles/${id}`);
+    const response = await bikeWorkshop.delete(`/bicycles/${id}`);
 
-    dispatch({type: DELETE_BICYCLE, payload: id});
+    dispatch({type: DELETE_BICYCLE, payload: response.data});
+    history.push('/garage')
+    refreshPage();
 }

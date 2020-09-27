@@ -9,15 +9,14 @@ const BicycleList = ({ bicycles }) => {
   return (
     <div> 
       {bicycles.map((bike) => (
-        <div class="bicycle" key={bike.id}>
-          <div class="card-body">
+        <Link to={`/garage/${bike.id}`} >
+        <div className="bicycle" key={bike.id}>
             <h2>{bike.name}</h2>
-            <h5>{bike.brand} {bike.model}</h5>
-            <h5>Typ: {bike.type}</h5>
-            <h5>Waga: {bike.weight}</h5>
-            <h5><Link to={`/garage/${bike.id}`} > szczegóły </Link></h5>
-          </div>
+            <div>{bike.brand} {bike.model}</div>
+            <div>Typ: {bike.type}</div>
+            <div>Waga: {bike.weight}</div>
         </div>
+        </Link>
       ))}
     </div>
   )
@@ -32,9 +31,10 @@ class Bicycles extends Component {
   render() {
     return (
       <ArticleBody
+        isBackButton='false'
         title="Twoje rowery"
         paragraphs={[
-          <div class="bicycle"><h2><Link to="/garage/new" > Dodaj rower + </Link></h2></div>,
+          <Link to="/garage/new" ><div className="bicycle"><h2> Dodaj rower + </h2></div></Link>,
           <div><BicycleList bicycles={this.props.bicycles} /></div>
         ]}
       />

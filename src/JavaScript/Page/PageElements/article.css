@@ -28,6 +28,8 @@
 
 .page-title {
     display: inline-block;
+    margin-bottom: 40px;
+    ;
 }
 
 .page-title .primary {
@@ -56,7 +58,6 @@
 }
 
 .section {
-    margin-top: 30px;
     width: 100%;
 }
 

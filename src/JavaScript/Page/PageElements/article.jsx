@@ -8,7 +8,7 @@ RenderGoBack.defaultProps = {
 };
 
 function RenderGoBack(props) {
-    if (props.isBackButton || undefined) {
+    if (props.isBackButton === true) {
         return (
             <div className="go-back-button">
                 <Link to={props.backButtonLink}><img src={IconGoBack} alt="GoBack" ></img></Link>
@@ -23,8 +23,8 @@ function RenderTitle(props) {
         return (
             <div className="empty-container">
                 <div className="page-title">
-                    <p className="primary">{props.title}</p>
-                    <p className="secondary">{props.secondaryTitle}</p>
+                    <div className="primary">{props.title}</div>
+                    <div className="secondary">{props.secondaryTitle}</div>
                 </div>
             </div>
         );
@@ -48,7 +48,7 @@ export default class Page extends React.Component {
                     <RenderGoBack isBackButton={this.props.isBackButton} backButtonLink={this.props.backButtonLink} />
                 </div>
                 <div className="pageContent">
-                    {this.props.paragraphs.map((paragraph) => <div className="section">{paragraph}</div>)}
+                    {this.props.paragraphs.map((paragraph, i) => <div key={i} className="section">{paragraph}</div>)}
                 </div>
             </div>
         );

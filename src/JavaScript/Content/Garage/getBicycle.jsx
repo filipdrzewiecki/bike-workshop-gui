@@ -1,18 +1,9 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
 import ArticleBody from '../../Page/PageElements/article.jsx';
-import { Link } from "react-router-dom";
 import { getBicycle } from "../apis/api-router.jsx"
+import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
-
-const SingleBicycle = props => {
-  return (
-    <div>
-
-    </div>
-  );
-};
-
 
 class Bicycle extends Component {
 
@@ -25,13 +16,20 @@ class Bicycle extends Component {
       return <div>Loading...</div>
     }
     return <ArticleBody
+      backButtonLink='/garage'
       title={this.props.bicycle.name}
+      secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}
       paragraphs={[
-        <div>{this.props.bicycle.name}</div>
+        <div>Typ: {this.props.bicycle.type}</div>,
+        <div>Waga: {this.props.bicycle.predefinedWeight}</div>,
+
+        <div className="bicycle-actions">
+          <Link className="button" to={`/garage/${this.props.bicycle.id}/edit`}>Edytuj</Link>
+          <Link className="button" to={`/garage/${this.props.bicycle.id}/delete`}>Usuń</Link>
+        </div>
       ]}
     />
   }
-
 }
 
 const mapStateToProps = (state, ownProps) => {

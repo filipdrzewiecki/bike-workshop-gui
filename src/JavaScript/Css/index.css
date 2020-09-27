@@ -172,12 +172,24 @@ a:active {
     width: 80%;
     display: inline-block;
     margin: 0px;
-    padding: 0;
+    padding: 0px;
     position: relative;
 }
 
 .bicycle {
     border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    margin-top: 0px;
+    padding-bottom: 20px;
+    padding-top: 20px
+}
+
+.bicycle h2 {
+    margin: 0px;
+}
+
+.bicycle:hover {
+    background-color: rgba(228, 228, 228, 0.3);
+    color: black;
 }
 
 .Field {
@@ -201,21 +213,35 @@ a:active {
 }
 
 .button {
-    background-color: #282c34;
-    border: none;
+    background-color: #008CBA;
+    border: 2px solid #008CBA;
+    border-radius: 4px;
     color: white;
-    padding: 12px 32px;
+    padding: 10px 20px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 16px;
-    margin: 4px 2px;
-    transition-duration: 0.2s;
+    margin-right: 4px;
+    transition-duration: 0.4s;
     cursor: pointer;
 }
 
 .button:hover {
-    border: 2px solid #282c34;
     background-color: white;
-    color: #282c34;
+    border: 2px solid #008CBA;
+    color: black;
+}
+
+.button:visited:hover {
+    color: black;
+}
+
+.button:visited {
+    color: white;
+}
+
+.bicycle-actions {
+    padding-top: 10px;
+    display: flex;
+    border-top: 1px solid rgba(0, 0, 0, 0.25);
 }
