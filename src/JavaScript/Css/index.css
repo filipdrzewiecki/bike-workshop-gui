@@ -200,6 +200,33 @@ a:active {
 
 .Field input {
     width: 40%;
+    height: 30px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+}
+
+.Field select {
+    border: 1px solid #ccc;
+    font-family: Arial;
+    width: 41%;
+    height: 35px;
+    border-radius: 4px;
+}
+
+::-webkit-input-placeholder {
+    color: rgba(189, 189, 189, 0.74);
+}
+
+::-moz-placeholder {
+    color: rgba(189, 189, 189, 0.74);
+}
+
+:-ms-input-placeholder {
+    color: rgba(189, 189, 189, 0.74);
+}
+
+:-moz-placeholder {
+    color: rgba(189, 189, 189, 0.74);
 }
 
 .Field label {
@@ -244,4 +271,9 @@ a:active {
     padding-top: 10px;
     display: flex;
     border-top: 1px solid rgba(0, 0, 0, 0.25);
+}
+
+.error {
+    font-size: 10px;
+    font-weight: 100;
 }

@@ -2,8 +2,8 @@ import '../../Css/index.css';
 import React, { Component } from 'react';
 import ArticleBody from '../../Page/PageElements/article.jsx';
 import { getBicycle } from "../apis/api-router.jsx"
-import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import BicycleDetails from './bicycleDetails.jsx'
 
 class Bicycle extends Component {
 
@@ -11,24 +11,24 @@ class Bicycle extends Component {
     this.props.getBicycle(this.props.match.params.id);
   }
 
-  render() {
-    if (!this.props.bicycle) {
-      return <div>Loading...</div>
-    }
-    return <ArticleBody
+  renderBicycle() {
+    return (
+    <ArticleBody
       backButtonLink='/garage'
       title={this.props.bicycle.name}
       secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}
       paragraphs={[
-        <div>Typ: {this.props.bicycle.type}</div>,
-        <div>Waga: {this.props.bicycle.predefinedWeight}</div>,
-
-        <div className="bicycle-actions">
-          <Link className="button" to={`/garage/${this.props.bicycle.id}/edit`}>Edytuj</Link>
-          <Link className="button" to={`/garage/${this.props.bicycle.id}/delete`}>Usuń</Link>
-        </div>
+        <BicycleDetails bicycle={this.props.bicycle}/>
       ]}
     />
+    );
+  }
+
+  render() {
+    if (!this.props.bicycle) {
+      return <div>Loading...</div>
+    }
+    return this.renderBicycle();
   }
 }
 

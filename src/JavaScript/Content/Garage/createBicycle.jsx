@@ -18,7 +18,7 @@ class AddBicycle extends Component {
             title="Dodaj rower"
             backButtonLink='/garage'
             paragraphs={[
-                <BicycleForm onSubmit={this.onSubmit}/>
+                <BicycleForm onSubmit={this.onSubmit} send="Dodaj" />
           ]}
           />
         );

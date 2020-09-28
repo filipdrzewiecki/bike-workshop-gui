@@ -4,6 +4,9 @@ import ArticleBody from '../../Page/PageElements/article.jsx';
 import { Link } from "react-router-dom";
 import { getBicycles } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
+import { MapType } from './bicycleDetails';
+
+
 
 const BicycleList = ({ bicycles }) => {
   return (
@@ -13,8 +16,7 @@ const BicycleList = ({ bicycles }) => {
         <div className="bicycle" key={bike.id}>
             <h2>{bike.name}</h2>
             <div>{bike.brand} {bike.model}</div>
-            <div>Typ: {bike.type}</div>
-            <div>Waga: {bike.weight}</div>
+            <div><MapType type = {bike.type }/>  {bike.weight} kg </div>
         </div>
         </Link>
       ))}

@@ -25,7 +25,9 @@ class UpdateBicycle extends Component {
             paragraphs={[
                 <BicycleForm 
                 initialValues={this.props.bicycle}
-                onSubmit={this.onSubmit}/>
+                onSubmit={this.onSubmit}
+                send="Edytuj"
+                />
           ]}
           />
         );
