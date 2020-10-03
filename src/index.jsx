@@ -16,7 +16,6 @@ import reduxThunk from 'redux-thunk';
 import history from './history';
 
 class App extends React.Component {
-
     render() {
         return (
                 <Router history={history}>

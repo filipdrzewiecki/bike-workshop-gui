@@ -1,39 +1,41 @@
 import bikeWorkshop from './bike-workshop-service.jsx'
 import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYCLE } from '../../actions/types.jsx'
 import history from '../../../history';
+import authHeader from '../../Page/Security/authHeader'
+
 
 const refreshPage = ()=>{
     window.location.reload();
  }
 
 export const createBicycle = formValues =>  async dispatch => {
-    const response = await bikeWorkshop.post('/bicycles', formValues);
+    const response = await bikeWorkshop.post('/bicycles', formValues, {headers: authHeader()});
 
     dispatch({type: CREATE_BICYCLE, payload: response.data});
     history.push('/garage')
 }
 
 export const getBicycles = () =>  async dispatch => {
-    const response = await bikeWorkshop.get(`/bicycles`);
+    const response = await bikeWorkshop.get(`/bicycles`, {headers: authHeader()});
 
     dispatch({type: GET_BICYCLES, payload: response.data});
 }
 
 export const getBicycle = (id) =>  async dispatch => {
-    const response = await bikeWorkshop.get(`/bicycles/${id}`);
+    const response = await bikeWorkshop.get(`/bicycles/${id}`, {headers: authHeader()});
 
     dispatch({type: GET_BICYCLE, payload: response.data});
 }
 
 export const updateBicycle = (id, formValues) =>  async dispatch => {
-    const response = await bikeWorkshop.put(`/bicycles/${id}`, formValues);
+    const response = await bikeWorkshop.put(`/bicycles/${id}`, formValues, {headers: authHeader()});
 
     dispatch({type: UPDATE_BICYCLE, payload: response.data});
     history.push('/garage')
 }
 
 export const deleteBicycle = (id) =>  async dispatch => {
-    const response = await bikeWorkshop.delete(`/bicycles/${id}`);
+    const response = await bikeWorkshop.delete(`/bicycles/${id}`, {headers: authHeader()});
 
     dispatch({type: DELETE_BICYCLE, payload: response.data});
     history.push('/garage')

@@ -21,7 +21,7 @@ class UpdateBicycle extends Component {
         return (
           <ArticleBody
             title="Edytuj rower"
-            backButtonLink='/garage'
+            backButtonLink={`/garage/${this.props.bicycle.id}`}
             paragraphs={[
                 <BicycleForm 
                 initialValues={this.props.bicycle}

@@ -1,8 +1,6 @@
 import './body.css';
 import React from 'react';
-import SideMenuLeft from './sideMenuLeft.jsx';
-import SideMenuRight from './sideMenuRight.jsx';
-import { Route, Switch, Link } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 //News
 import Main from '../../Content/News/main.jsx';
 //Garage
@@ -11,6 +9,7 @@ import AddBicycle from '../../Content/Garage/createBicycle.jsx';
 import GetBicycle from '../../Content/Garage/getBicycle.jsx';
 import UpdateBicycle from '../../Content/Garage/updateBicycle.jsx';
 import DeleteBicycle from '../../Content/Garage/deleteBicycle.jsx';
+import LoginPage from '../Security/LoginPage.jsx'
 
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
@@ -18,36 +17,12 @@ import Bicycles from '../../Content/Bicycles/bicycles.jsx';
 import Parts from '../../Content/Parts/parts.jsx';
 
 
-
-const LeftMenu = () => {
-    return (
-        <SideMenuLeft
-            paragraphs={[
-                <Link to={'/service/frame/headset'}>Serwis sterów</Link>,
-                <Link to={'/compatibility/wheel/tyre-to-rim'}>Jak dobrać opony</Link>,
-                <Link to={'/compatibility/drivetrain/cassette'}>Jak dobrać kasetę</Link>
-            ]}
-        />
-    );
-}
-
-const RightMenu = () => {
-    return (
-        <SideMenuRight
-            paragraphs={[
-                <Link to={'/service/frame/headset'}>Serwis sterów</Link>,
-                <Link to={'/compatibility/wheel/tyre-to-rim'}>Jak dobrać opony</Link>,
-                <Link to={'/compatibility/drivetrain/cassette'}>Jak dobrać kasetę</Link>
-            ]}
-        />
-    );
-}
-
 const PageBody = () => {
     return (
         <div className="pageBody">
-            <LeftMenu />
             <Switch>
+                {/* NEWS */}
+                <Route path="/login" exact component={LoginPage} />
                 {/* NEWS */}
                 <Route path="/" exact component={Main} />
                 {/* GARAGE */}
@@ -60,9 +35,7 @@ const PageBody = () => {
                 <Route path="/bicycles" exact component={Bicycles} />
                 {/* PARTS */}
                 <Route path="/parts" exact component={Parts} />
-
             </Switch>
-            <RightMenu />
         </div>
     );
 }

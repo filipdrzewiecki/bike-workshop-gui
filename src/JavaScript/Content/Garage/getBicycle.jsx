@@ -1,9 +1,18 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
-import ArticleBody from '../../Page/PageElements/article.jsx';
+import BicycleDetails from '../../Page/PageElements/bicycleDetails.jsx';
 import { getBicycle } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
-import BicycleDetails from './bicycleDetails.jsx'
+
+export function MapType(props) {
+  if (props.type === "MOUNTAIN_BIKE") {
+    return "Rower górski";
+  }
+  if (props.type === "ROAD_BIKE") {
+    return "Rower szosowy";
+  }
+  return "Nieznany";
+}
 
 class Bicycle extends Component {
 
@@ -13,14 +22,20 @@ class Bicycle extends Component {
 
   renderBicycle() {
     return (
-    <ArticleBody
-      backButtonLink='/garage'
-      title={this.props.bicycle.name}
-      secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}
-      paragraphs={[
-        <BicycleDetails bicycle={this.props.bicycle}/>
-      ]}
-    />
+      <BicycleDetails
+        backButtonLink='/garage'
+        title={this.props.bicycle.name}
+        bicycle={this.props.bicycle}
+        secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}
+        content={
+          <div>
+            <div>Typ: <MapType type={this.props.bicycle.type} /></div>
+            <div>Waga: {this.props.bicycle.predefinedWeight}</div>
+            <div>Rama: </div>
+            <div>Widelec: </div>
+          </div>
+        }
+      />
     );
   }
 
