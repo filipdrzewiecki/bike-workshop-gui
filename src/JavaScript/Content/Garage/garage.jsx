@@ -7,7 +7,6 @@ import { connect } from 'react-redux';
 import { MapType } from './getBicycle.jsx';
 
 
-
 const BicycleList = ({ bicycles }) => {
   return (
     <div> 
@@ -26,6 +25,10 @@ const BicycleList = ({ bicycles }) => {
 
 class Bicycles extends Component {
 
+  clearClick(){
+    localStorage.clear();
+  }
+
   componentDidMount() {
     this.props.getBicycles();
   }
@@ -37,7 +40,8 @@ class Bicycles extends Component {
         title="Twoje rowery"
         paragraphs={[
           <Link to="/garage/new" ><div className="bicycle"><h2> Dodaj rower + </h2></div></Link>,
-          <div><BicycleList bicycles={this.props.bicycles} /></div>
+          <div><BicycleList bicycles={this.props.bicycles} /></div>,
+          <button>{this.clearClick} wyloguj</button>
         ]}
       />
     );
