@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "../../../resources/icon/page/delete.svg";
 import EditIcon from "../../../resources/icon/page/edit.svg";
 import DropdownIcon from "../../../resources/icon/page/dots.svg";
+import { getUserName }  from '../Security/authHeader';
 
 export default class BicycleDetails extends React.Component {
 
@@ -18,8 +19,8 @@ export default class BicycleDetails extends React.Component {
                 <div className="dropbtn"><img src={DropdownIcon} alt="delete" ></img></div>
                 <div className="dropdown-content">
                     <div><img src={DropdownIcon} alt="dots" ></img></div>
-                    <li><Link to={`/garage/${this.props.bicycle.id}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
-                    <li><Link to={`/garage/${this.props.bicycle.id}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
+                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.id}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
+                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.id}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
                 </div>
             </div>
         );

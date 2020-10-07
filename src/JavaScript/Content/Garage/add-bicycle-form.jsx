@@ -42,8 +42,8 @@ class AddBicycleForm extends Component {
           <Field name="predefinedWeight" component={this.renderInput} label={"Waga"} placeholder="np. 12.7"/>
           <div className="Field">
             <label>Typ</label>
-            <Field name="type" component="select" label={"Typ"}>
-              <option value="" disabled selected>Wybierz typ</option>
+            <Field name="type" component="select" label={"Typ"} defaultValue={'DEFAULT'}> 
+              <option defaultValue="DEFAULT" disabled selected>Wybierz typ</option>
               <option value="MOUNTAIN_BIKE">Rower górski</option>
               <option value="ROAD_BIKE">Rower szosowy</option>
             </Field>

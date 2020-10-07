@@ -8,21 +8,20 @@ import SlidingNavbar from './JavaScript/Page/Navbar/slidingNavbar';
 import './JavaScript/Css/index.css';
 import history from './history';
 import LoginPage from './JavaScript/Page/Security/LoginPage';
-import {autoLogin} from './JavaScript/Page/Security/userActions';
-
-import {connect} from 'react-redux';
 
 
 class App extends React.Component {
-
-    componentDidMount(){
-        this.props.autoLogin()
-      }
+  isLoggedIn() {
+    let isLogged = localStorage.getItem("token");
+    return (
+      (isLogged != null)
+    );
+  }
 
     render() {
         console.log(this.props)
 
-        if (this.props.userReducer.loggedIn) {
+        if (this.isLoggedIn()) {
             return (
                 <Router history={history}>
                     <SlidingNavbar />
@@ -40,16 +39,5 @@ class App extends React.Component {
     }
 }
 
-const mapStateToProps = (state) => {
-    return {
-      userReducer: state.userReducer
-    }
-  }
-  
-  const mapDispatchToProps = (dispatch) => {
-    return {
-      autoLogin: () => dispatch(autoLogin())
-    }
-  }
 
-  export default connect(mapStateToProps, mapDispatchToProps)(App);
+  export default App;

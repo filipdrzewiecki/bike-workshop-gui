@@ -26,11 +26,11 @@ const PageBody = () => {
                 {/* NEWS */}
                 <Route path="/" exact component={Main} />
                 {/* GARAGE */}
-                <Route path="/garage" exact component={Garage} />
-                <Route path="/garage/new" exact component={AddBicycle} />
-                <Route path="/garage/:id" exact component={GetBicycle} />
-                <Route path="/garage/:id/edit" exact component={UpdateBicycle} />
-                <Route path="/garage/:id/delete" exact component={DeleteBicycle} />
+                <Route path="/:id/garage" exact component={Garage} />
+                <Route path="/:id/garage/new" exact component={AddBicycle} />
+                <Route path="/:id/garage/:id" exact component={GetBicycle} />
+                <Route path="/:id/garage/:id/edit" exact component={UpdateBicycle} />
+                <Route path="/:id/garage/:id/delete" exact component={DeleteBicycle} />
                 {/* BICYCLES */}
                 <Route path="/bicycles" exact component={Bicycles} />
                 {/* PARTS */}

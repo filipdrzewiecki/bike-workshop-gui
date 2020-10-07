@@ -5,13 +5,14 @@ import { Link } from "react-router-dom";
 import { getBicycles } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
 import { MapType } from './getBicycle.jsx';
+import { getUserName } from '../../Page/Security/authHeader';
 
 
 const BicycleList = ({ bicycles }) => {
   return (
     <div> 
       {bicycles.map((bike) => (
-        <Link to={`/garage/${bike.id}`}  key={bike.id}>
+        <Link to={`/${getUserName()}/garage/${bike.id}`}  key={bike.id}>
         <div className="bicycle" key={bike.id}>
             <h2>{bike.name}</h2>
             <div>{bike.brand} {bike.model}</div>
@@ -25,23 +26,23 @@ const BicycleList = ({ bicycles }) => {
 
 class Bicycles extends Component {
 
-  clearClick(){
-    localStorage.clear();
-  }
+
 
   componentDidMount() {
+    let userName = localStorage.getItem("userName");
+    console.log("jestem w garazu, userName to: " + userName)
     this.props.getBicycles();
   }
 
   render() {
+    console.log("wszedlem do garazu")
     return (
       <ArticleBody
         isBackButton='false'
         title="Twoje rowery"
         paragraphs={[
-          <Link to="/garage/new" ><div className="bicycle"><h2> Dodaj rower + </h2></div></Link>,
+          <Link to={`/${getUserName()}/garage/new`} ><div className="bicycle"><h2> Dodaj rower + </h2></div></Link>,
           <div><BicycleList bicycles={this.props.bicycles} /></div>,
-          <button>{this.clearClick} wyloguj</button>
         ]}
       />
     );

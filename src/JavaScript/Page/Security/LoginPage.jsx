@@ -1,15 +1,19 @@
 import React from 'react';
-import './LoginPage.css';
 import { connect } from 'react-redux';
-import LoginComponent from './LoginComponent';
-import SignUpComponent from './SingUpComponent';
+import LoginForm from './LoginForm';
+import { fetchUser } from './userActions'
 
 class LoginPage extends React.Component {
+
+  onSubmit = (formValues) => {
+    this.props.fetchUser(formValues);
+    console.log(formValues)
+  }
 
   render() {
     console.log(this.props);
     return (
-      <LoginComponent />
+      <LoginForm onSubmit={this.onSubmit} />
     );
   }
 }
@@ -20,5 +24,6 @@ const mapStateToProps = (state) => {
   }
 }
 
+export default connect (mapStateToProps, {fetchUser} ) (LoginPage);
 
-export default connect(mapStateToProps)(LoginPage);
+//export default connect(mapStateToProps)(LoginPage);
