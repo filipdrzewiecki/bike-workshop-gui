@@ -19,8 +19,8 @@ export default class BicycleDetails extends React.Component {
                 <div className="dropbtn"><img src={DropdownIcon} alt="delete" ></img></div>
                 <div className="dropdown-content">
                     <div><img src={DropdownIcon} alt="dots" ></img></div>
-                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.id}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
-                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.id}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
+                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
+                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
                 </div>
             </div>
         );

@@ -48,7 +48,6 @@ export default class SlidingNavbar extends Component {
   }
 
   render() {
-    console.log(this.state);
     return (
       <RenderNavbar visible={this.state.visible} />
     );

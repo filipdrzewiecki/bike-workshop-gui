@@ -12,7 +12,7 @@ const BicycleList = ({ bicycles }) => {
   return (
     <div> 
       {bicycles.map((bike) => (
-        <Link to={`/${getUserName()}/garage/${bike.id}`}  key={bike.id}>
+        <Link to={`/${getUserName()}/garage/${bike.name}`} key={bike.id}>
         <div className="bicycle" key={bike.id}>
             <h2>{bike.name}</h2>
             <div>{bike.brand} {bike.model}</div>
@@ -25,12 +25,7 @@ const BicycleList = ({ bicycles }) => {
 };
 
 class Bicycles extends Component {
-
-
-
   componentDidMount() {
-    let userName = localStorage.getItem("userName");
-    console.log("jestem w garazu, userName to: " + userName)
     this.props.getBicycles();
   }
 

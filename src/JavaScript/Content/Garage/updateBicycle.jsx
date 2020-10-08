@@ -4,6 +4,7 @@ import ArticleBody from '../../Page/PageElements/article.jsx';
 import {connect} from 'react-redux';
 import {getBicycle, updateBicycle} from '../apis/api-router';
 import BicycleForm from './add-bicycle-form';
+import { getUserName } from '../../Page/Security/authHeader';
 
 class UpdateBicycle extends Component {
 
@@ -21,7 +22,7 @@ class UpdateBicycle extends Component {
         return (
           <ArticleBody
             title="Edytuj rower"
-            backButtonLink={`/garage/${this.props.bicycle.id}`}
+            backButtonLink={`/${getUserName()}/garage/${this.props.match.params.id}`}
             paragraphs={[
                 <BicycleForm 
                 initialValues={this.props.bicycle}
@@ -35,7 +36,8 @@ class UpdateBicycle extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-    return { bicycle: state.bicycles[ownProps.match.params.id] }
+  const bicycles = Object.values(state.bicycles);
+  return { bicycle: bicycles.find(bike => bike.name === ownProps.match.params.id) }
   }
 
   export default connect (mapStateToProps, {getBicycle, updateBicycle} ) (UpdateBicycle);

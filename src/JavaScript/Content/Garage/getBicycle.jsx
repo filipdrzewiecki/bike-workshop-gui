@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import BicycleDetails from '../../Page/PageElements/bicycleDetails.jsx';
 import { getBicycle } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
+import { getUserName } from '../../Page/Security/authHeader';
 
 export function MapType(props) {
   if (props.type === "MOUNTAIN_BIKE") {
@@ -23,7 +24,7 @@ class Bicycle extends Component {
   renderBicycle() {
     return (
       <BicycleDetails
-        backButtonLink='/garage'
+        backButtonLink={`/${getUserName()}/garage`}
         title={this.props.bicycle.name}
         bicycle={this.props.bicycle}
         secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}
@@ -47,8 +48,10 @@ class Bicycle extends Component {
   }
 }
 
+
 const mapStateToProps = (state, ownProps) => {
-  return { bicycle: state.bicycles[ownProps.match.params.id] }
+  const bicycles = Object.values(state.bicycles);
+  return { bicycle: bicycles.find(bike => bike.name === ownProps.match.params.id) }
 }
 
 export default connect(mapStateToProps, { getBicycle })(Bicycle);

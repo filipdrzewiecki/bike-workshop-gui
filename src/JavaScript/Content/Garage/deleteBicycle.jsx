@@ -1,4 +1,6 @@
 import '../../Css/index.css';
+import '../../Page/PageElements/modal.css'
+
 import React from 'react';
 import { Link } from "react-router-dom";
 
@@ -7,6 +9,7 @@ import {getBicycle, deleteBicycle} from '../apis/api-router';
 
 import Modal from '../../Page/PageElements/modal.jsx'
 import history from '../../../history.jsx'
+import { getUserName } from '../../Page/Security/authHeader';
 
 
 class DeleteBicicyle extends React.Component {
@@ -19,7 +22,7 @@ class DeleteBicicyle extends React.Component {
     return (
       <React.Fragment>
         <button onClick={() => this.props.deleteBicycle(this.props.match.params.id)} className="button-do">Usuń</button>
-        <Link className="button-dont" to={`/garage/${this.props.bicycle.id}`}>Wróć</Link>
+        <Link className="button-dont" to={`/${getUserName()}/garage/${this.props.match.params.id}`}><span>WRÓĆ</span></Link>
       </React.Fragment>
     );
   }
@@ -41,7 +44,7 @@ class DeleteBicicyle extends React.Component {
           header="Usuń rower"
           content={this.renderContent()}
           actions={this.renderActions()}
-          onDismiss={() => history.push(`/garage/${this.props.bicycle.id}`)}
+          onDismiss={() => history.push(`/${getUserName()}/garage/${this.props.match.params.id}`)}
         />
     );
   }
