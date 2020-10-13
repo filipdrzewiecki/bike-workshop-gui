@@ -176,7 +176,6 @@ a:hover {
 .submit {
     background-color: #008CBA;
     border: 2px solid #008CBA;
-    border-radius: var(--loginInputBorderRadius);
     color: #fff;
     font-weight: 700;
     order: 1;
@@ -184,12 +183,49 @@ a:hover {
     transition-duration: 0.4s;
     cursor: pointer;
     text-decoration: none;
+    display: block;
+    margin: 10px;
+    font-size: 14px;
+    height: 45px;
 }
 
 .submit:focus,
 .submit:hover {
     background-color: #007096;
     border: 2px solid #007096;
+}
+
+.err {
+    background-color: white;
+    width: 100%;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    padding-top: 15px;
+}
+
+.registerButton,
+.registerButton:visited {
+    background-color: rgb(187, 187, 187);
+    border: 2px solid rgb(187, 187, 187);
+    color: #fff;
+    font-weight: 700;
+    order: 2;
+    padding: 0.75em 1.25em;
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    margin: 10px;
+    transition: 0.4s;
+    font-size: 14px;
+    height: 45px;
+}
+
+.registerButton:focus,
+.registerButton:hover {
+    background-color: rgb(216, 216, 216);
+    border: 2px solid rgb(216, 216, 216);
+    color: #fff;
 }
 
 

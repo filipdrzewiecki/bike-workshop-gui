@@ -2,25 +2,44 @@ import React from 'react';
 import { connect } from 'react-redux';
 import LoginForm from './LoginForm';
 import { fetchUser } from './userActions'
+import _ from 'lodash';
 
 class LoginPage extends React.Component {
-
   onSubmit = (formValues) => {
     this.props.fetchUser(formValues);
-    console.log(formValues)
+  }
+
+  isError() {
+    return (
+      this.props.userReducer.error && !_.isEmpty(this.props.userReducer.error)
+      );
   }
 
   render() {
-    console.log(this.props);
-    return (
-      <LoginForm onSubmit={this.onSubmit} />
-    );
+    if (this.props.userReducer.user && !_.isEmpty(this.props.userReducer.user)) {
+      return <div>jest user</div>
+    }
+    return <LoginForm onSubmit={this.onSubmit} isError={this.isError()}/>
+    }
+    
   }
-}
+
 
 const mapStateToProps = (state) => {
+  if (state.userReducer.user) {
+    let user = Object.values(state.userReducer.user);
+    console.log("user:")
+    console.log(user)
+  }
+  if (state.userReducer.error) {
+    console.log("error:")
+    console.log(state.userReducer.error)
+
+  }
+
   return {
     userReducer: state.userReducer
+
   }
 }
 

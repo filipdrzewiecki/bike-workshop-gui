@@ -23,7 +23,6 @@ class AddBicycleForm extends Component {
   }
 
   onSubmit = (formValues) => {
-    console.log("Oto formularz", formValues)
     this.props.onSubmit(formValues);
   }
 
