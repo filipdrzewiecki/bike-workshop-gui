@@ -22,9 +22,15 @@ class LoginForm extends React.Component {
     this.setState({ value: event.target.value });
   }
 
-  renderResponseError(isError) {
-    if (isError) {
+  renderResponseError() {
+    if (this.props.isError) {
       return <div className="err">Niepoprawny login lub hasło</div>
+    }
+  }
+
+  renderSuccessfulResponse() {
+    if (this.props.response) {
+      return <div className="response">Użytkownik poprawnie zarejestrowany</div>
     }
   }
 
@@ -35,8 +41,8 @@ class LoginForm extends React.Component {
           <header className="login__header"><h3 className="login__title">Login</h3></header>
 
           <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
-            {this.renderResponseError(this.props.isError)}
-
+            {this.renderResponseError()}
+            {this.renderSuccessfulResponse()}
             <div className="login__body">
               <Field name="login" type="text" component={this.renderInput} placeholder="Login" required />
               <Field name="password" type="password" component={this.renderInput} placeholder="Password" required />

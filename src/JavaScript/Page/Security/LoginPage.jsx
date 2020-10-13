@@ -12,17 +12,20 @@ class LoginPage extends React.Component {
   isError() {
     return (
       this.props.userReducer.error && !_.isEmpty(this.props.userReducer.error)
-      );
+    );
+  }
+
+  isResponse() {
+    return (
+      this.props.userReducer.user && !_.isEmpty(this.props.userReducer.user)
+    );
   }
 
   render() {
-    if (this.props.userReducer.user && !_.isEmpty(this.props.userReducer.user)) {
-      return <div>jest user</div>
-    }
-    return <LoginForm onSubmit={this.onSubmit} isError={this.isError()}/>
-    }
-    
+    return <LoginForm onSubmit={this.onSubmit} isError={this.isError()} response={this.isResponse()}/>
   }
+
+}
 
 
 const mapStateToProps = (state) => {
@@ -43,6 +46,6 @@ const mapStateToProps = (state) => {
   }
 }
 
-export default connect (mapStateToProps, {fetchUser} ) (LoginPage);
+export default connect(mapStateToProps, { fetchUser })(LoginPage);
 
 //export default connect(mapStateToProps)(LoginPage);
