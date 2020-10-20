@@ -28,14 +28,6 @@ class Bicycle extends Component {
         title={this.props.bicycle.name}
         bicycle={this.props.bicycle}
         secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}
-        content={
-          <div>
-            <div>Typ: <MapType type={this.props.bicycle.type} /></div>
-            <div>Waga: {this.props.bicycle.predefinedWeight}</div>
-            <div>Rama: </div>
-            <div>Widelec: </div>
-          </div>
-        }
       />
     );
   }

@@ -3,3 +3,5 @@ export const GET_BICYCLE = 'GET_BICYCLE';
 export const GET_BICYCLES = 'GET_BICYCLES';
 export const UPDATE_BICYCLE = 'UPDATE_BICYCLE';
 export const DELETE_BICYCLE = 'DELETE_BICYCLE';
+export const FETCH_FRAME = 'FETCH_FRAME';
+export const ADD_FRAME_TO_BICYCLE = 'ADD_FRAME_TO_BICYCLE';

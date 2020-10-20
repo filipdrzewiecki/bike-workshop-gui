@@ -287,3 +287,10 @@ a:active {
 .icon:hover {
     filter: opacity(100%);
 }
+
+.partSegment {
+    display: inline-block;
+    width: 80%;
+    border: 1px black;
+    padding: 5px;
+}

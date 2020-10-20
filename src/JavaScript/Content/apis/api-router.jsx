@@ -1,5 +1,5 @@
 import bikeWorkshop from './bike-workshop-service.jsx'
-import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYCLE } from '../../actions/types.jsx'
+import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYCLE, ADD_FRAME_TO_BICYCLE, FETCH_FRAME } from '../../actions/bicycleOperationTypes.jsx'
 import history from '../../../history';
 import { authHeader } from '../../Page/Security/authHeader';
 import { getUserName }  from '../../Page/Security/authHeader';
@@ -40,4 +40,20 @@ export const deleteBicycle = (id) =>  async dispatch => {
     dispatch({type: DELETE_BICYCLE, payload: response.data});
     history.push(`/${getUserName()}/garage`)
     refreshPage();
+}
+
+
+
+
+export const fetchPart = (id) =>  async dispatch => {
+    const response = await bikeWorkshop.get(`${getUserName()}/bicycles/${id}/frame`, {headers: authHeader()});
+
+    dispatch({type: FETCH_FRAME, payload: response.data});
+}
+
+export const addFrameToBicycle = (id, formValues) =>  async dispatch => {
+    const response = await bikeWorkshop.post(`${getUserName()}/bicycles/${id}/frame`, formValues, {headers: authHeader()});
+
+    dispatch({type: ADD_FRAME_TO_BICYCLE, payload: response.data});
+    history.push(`/${getUserName()}/garage`)
 }

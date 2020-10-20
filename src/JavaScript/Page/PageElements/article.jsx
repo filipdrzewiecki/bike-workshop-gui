@@ -48,7 +48,7 @@ export default class Page extends React.Component {
                     <RenderTitle title={this.props.title} secondaryTitle={this.props.secondaryTitle} />
                     <RenderGoBack isBackButton={this.props.isBackButton} backButtonLink={this.props.backButtonLink} />
                 </div>
-                <div className="pageContent">
+                <div className="pageContentMenu">
                     {this.props.paragraphs.map((paragraph, i) => <div key={i} className="section">{paragraph}</div>)}
                 </div>
             </div>

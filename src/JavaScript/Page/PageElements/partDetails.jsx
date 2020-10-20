@@ -1,4 +1,4 @@
-import './bicycleDetails.css';
+import './partDetails.css';
 import '../../Css/dropdownMenu.css';
 import React from 'react';
 import IconGoBack from '../../../resources/icon/go-back.png';
@@ -7,9 +7,8 @@ import DeleteIcon from "../../../resources/icon/page/delete.svg";
 import EditIcon from "../../../resources/icon/page/edit.svg";
 import DropdownIcon from "../../../resources/icon/page/dots.svg";
 import { getUserName } from '../Security/authHeader';
-import { MapType } from '../../Content/Garage/getBicycle';
 
-export default class BicycleDetails extends React.Component {
+export default class PartDetails extends React.Component {
 
     renderDropdownMenu() {
         if (!this.props.bicycle) {
@@ -51,13 +50,6 @@ export default class BicycleDetails extends React.Component {
         );
     }
 
-    renderPart(part, partName) {
-        if (part) {
-            return <Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}`}> {part.brand} </Link>;
-        }
-        return <Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}/add`}>dodaj +</Link>
-    }
-
     render() {
         return (
             <div className="page">
@@ -65,19 +57,8 @@ export default class BicycleDetails extends React.Component {
                     {this.RenderTitle()}
                     {this.RenderGoBack()}
                 </div>
-                <div className="pageContent">
-                    <div className="contentNames">
-                        <div>Typ:  </div>
-                        <div>Waga: </div>
-                        <div>Rama: </div>
-                        <div>Widelec: </div>
-                    </div>
-                    <div className="contentValues">
-                        <div><MapType type={this.props.bicycle.type}/></div>
-                        <div>{this.props.bicycle.predefinedWeight}</div>
-                        <div>{this.renderPart(this.props.bicycle.frame, 'frame')}</div>
-                        <div>{this.renderPart(this.props.bicycle.fork, 'fork')}</div>
-                    </div>
+                <div>
+                    {this.props.paragraphs.map((paragraph) => <div>{paragraph}</div>)}
                 </div>
             </div>
         );

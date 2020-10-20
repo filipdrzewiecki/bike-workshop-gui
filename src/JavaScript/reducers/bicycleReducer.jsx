@@ -1,5 +1,5 @@
 import _ from 'lodash';
-import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYCLE } from '../actions/types.jsx'
+import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYCLE } from '../actions/bicycleOperationTypes.jsx'
 
 export default (state={}, action) => {
     switch(action.type) {
