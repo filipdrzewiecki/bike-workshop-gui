@@ -9,12 +9,15 @@ import UpdateBicycle from '../../Content/Garage/updateBicycle.jsx';
 import DeleteBicycle from '../../Content/Garage/deleteBicycle.jsx';
 import LoginPage from '../Security/LoginPage.jsx'
 
-import BicycleFrame from '../../Content/Parts/fetchBicycleFrame.jsx';
-import AddFrameToBike from '../../Content/Parts/addFrameToBicycle.jsx';
+import BicyclePart from '../../Content/Garage/fetchBicyclePart.jsx';
+import AddPartToBike from '../../Content/Garage/addPartToBicycle.jsx';
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
 //Parts
 import Parts from '../../Content/Parts/parts.jsx';
+import FetchParts from '../../Content/Parts/fetchParts.jsx';
+import FetchPart from '../../Content/Parts/fetchPart.jsx';
+import CreatePart from '../../Content/Parts/createPart.jsx';
 
 
 const PageBody = () => {
@@ -26,21 +29,24 @@ const PageBody = () => {
                 
                 {/* GARAGE */}
                 <Route path="/" exact component={Garage} />
-                <Redirect exact from="/" to="/:id/garage" />
-
-                <Route path="/:id/garage" exact component={Garage} />
-                <Route path="/:id/garage/new" exact component={AddBicycle} />
-                <Route path="/:id/garage/:id" exact component={GetBicycle} />
-                <Route path="/:id/garage/:id/edit" exact component={UpdateBicycle} />
-                <Route path="/:id/garage/:id/delete" exact component={DeleteBicycle} />
-
-                <Route path="/:id/garage/:id/frame" exact component={BicycleFrame} />
-                <Route path="/:id/garage/:id/frame/add" exact component={AddFrameToBike} />
+                <Redirect exact from="/" to="/:user/garage" />
+                <Route path="/:user/garage" exact component={Garage} />
+                <Route path="/:user/garage/new" exact component={AddBicycle} />
+                <Route path="/:user/garage/:bike" exact component={GetBicycle} />
+                <Route path="/:user/garage/:bike/edit" exact component={UpdateBicycle} />
+                <Route path="/:user/garage/:bike/delete" exact component={DeleteBicycle} />
+                <Route path="/:user/garage/:bike/:part" exact component={BicyclePart} />
+                <Route path="/:user/garage/:bike/:part/new" exact component={AddPartToBike} />
 
                 {/* BICYCLES */}
                 <Route path="/bicycles" exact component={Bicycles} />
+
                 {/* PARTS */}
                 <Route path="/parts" exact component={Parts} />
+                <Route path="/parts/:part" exact component={FetchParts} />
+                <Route path="/parts/:part/new" exact component={CreatePart} />
+                <Route path="/parts/:part/:id" exact component={FetchPart} />
+
             </Switch>
         </div>
     );

@@ -62,17 +62,22 @@
     font-family: Poppins, sans-serif;
     width: 90%;
     margin: 0 auto;
+}
+
+.contentField {
+    width: 100%;
     display: flex;
+    flex-wrap: wrap;
 }
 
-.contentNames {
+.fieldName {
     width: 25%;
-    display: block;
+    display: inline-block;
 }
 
-.contentValues {
+.fieldValue {
     width: 75%;
-    display: block;
+    display: inline-block;
 }
 
 .section {

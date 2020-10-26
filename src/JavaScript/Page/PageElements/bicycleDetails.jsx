@@ -66,17 +66,21 @@ export default class BicycleDetails extends React.Component {
                     {this.RenderGoBack()}
                 </div>
                 <div className="pageContent">
-                    <div className="contentNames">
-                        <div>Typ:  </div>
-                        <div>Waga: </div>
-                        <div>Rama: </div>
-                        <div>Widelec: </div>
+                    <div className="contentField">
+                        <div className="fieldName">Typ:  </div>
+                        <div className="fieldValue"><MapType type={this.props.bicycle.type} /></div>
                     </div>
-                    <div className="contentValues">
-                        <div><MapType type={this.props.bicycle.type}/></div>
-                        <div>{this.props.bicycle.predefinedWeight}</div>
-                        <div>{this.renderPart(this.props.bicycle.frame, 'frame')}</div>
-                        <div>{this.renderPart(this.props.bicycle.fork, 'fork')}</div>
+                    <div className="contentField">
+                        <div className="fieldName">Waga: </div>
+                        <div className="fieldValue">{this.props.bicycle.predefinedWeight}</div>
+                    </div>
+                    <div className="contentField">
+                        <div className="fieldName">Rama: </div>
+                        <div className="fieldValue">{this.renderPart(this.props.bicycle.frame, 'frame')}</div>
+                    </div>
+                    <div className="contentField">
+                        <div className="fieldName">Widelec: </div>
+                        <div className="fieldValue">{this.renderPart(this.props.bicycle.fork, 'fork')}</div>
                     </div>
                 </div>
             </div>

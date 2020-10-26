@@ -2,11 +2,11 @@ import '../../Css/index.css';
 import React, { Component } from 'react';
 import ArticleBody from '../../Page/PageElements/article.jsx';
 import { connect } from 'react-redux';
-import { addFrameToBicycle } from '../apis/api-router';
+import { addPartToBicycle } from '../apis/api-router';
 import { getUserName } from '../../Page/Security/authHeader';
-import AddFrameForm from './addFrameForm';
+import AddFrameForm from './addPartToBicycleForm';
 
-class AddFrameToBicycle extends Component {
+class AddPartToBicycle extends Component {
 
   onSubmit = (formValues) => {
     this.props.addFrameToBicycle(this.props.match.params.id, formValues);
@@ -26,4 +26,4 @@ class AddFrameToBicycle extends Component {
 
 }
 
-export default connect(null, { addFrameToBicycle })(AddFrameToBicycle);
+export default connect(null, { addPartToBicycle })(AddPartToBicycle);

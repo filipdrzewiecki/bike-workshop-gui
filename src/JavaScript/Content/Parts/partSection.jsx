@@ -11,12 +11,12 @@ export default class PartDetails extends React.Component {
                     {this.props.sectionTitle}
                 </div>
                 <div className="pageContent">
-                    <div className="contentNames">
-                        {this.props.fieldNames.map((name) => <div>{name}:</div>)}
-                    </div>
-                    <div className="contentValues">
-                        {this.props.fieldValues.map((value) => <div>{value}</div>)}
-                    </div>
+                    {this.props.fields.map((field, i) =>
+                        <div className="contentField" key={i}>
+                            <div className="fieldName">{field.props.name}:  </div>
+                            <div className="fieldValue">{field.props.value}</div>
+                        </div>
+                    )}
                 </div>
             </div>
         );

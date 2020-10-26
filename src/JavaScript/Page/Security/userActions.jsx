@@ -30,6 +30,7 @@ function loginWithSuccess(response) {
           dispatch(loginWithSuccess(response))
           localStorage.setItem("token", response.data.token)
           localStorage.setItem("userName", response.data.userName)
+          localStorage.setItem("roles", response.data.roles)
           history.push(`/${response.data.userName}/garage`)
           window.location.reload();
         })

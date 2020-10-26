@@ -3,5 +3,15 @@ export const GET_BICYCLE = 'GET_BICYCLE';
 export const GET_BICYCLES = 'GET_BICYCLES';
 export const UPDATE_BICYCLE = 'UPDATE_BICYCLE';
 export const DELETE_BICYCLE = 'DELETE_BICYCLE';
-export const FETCH_FRAME = 'FETCH_FRAME';
-export const ADD_FRAME_TO_BICYCLE = 'ADD_FRAME_TO_BICYCLE';
+
+export const FETCH_BICYCLE_PART = 'FETCH_BICYCLE_PART';
+export const ADD_BICYCLE_PART = 'ADD_BICYCLE_PART';
+export const EDIT_BICYCLE_PART = 'EDIT_BICYCLE_PART';
+export const DELETE_BICYCLE_PART = 'DELETE_BICYCLE_PART';
+
+export const CREATE_PART = 'CREATE_PART';
+export const FETCH_PART = 'FETCH_PART';
+export const FETCH_PARTS = 'FETCH_PARTS';
+export const EDIT_PART = 'EDIT_PART';
+export const DELETE_PART = 'DELETE_PART';
+

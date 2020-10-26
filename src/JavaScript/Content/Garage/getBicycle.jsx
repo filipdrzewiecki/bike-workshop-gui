@@ -18,7 +18,7 @@ export function MapType(props) {
 class Bicycle extends Component {
 
   componentDidMount() {
-    this.props.getBicycle(this.props.match.params.id);
+    this.props.getBicycle(this.props.match.params.bike);
   }
 
   renderBicycle() {
@@ -40,10 +40,9 @@ class Bicycle extends Component {
   }
 }
 
-
 const mapStateToProps = (state, ownProps) => {
   const bicycles = Object.values(state.bicycles);
-  return { bicycle: bicycles.find(bike => bike.name === ownProps.match.params.id) }
+  return { bicycle: bicycles.find(bike => bike.name === ownProps.match.params.bike) }
 }
 
 export default connect(mapStateToProps, { getBicycle })(Bicycle);

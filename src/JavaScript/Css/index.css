@@ -199,7 +199,7 @@ a:active {
 }
 
 .Field input {
-    width: 40%;
+    width: 60%;
     height: 30px;
     border-radius: 4px;
     border: 1px solid #ccc;
@@ -286,11 +286,4 @@ a:active {
 
 .icon:hover {
     filter: opacity(100%);
-}
-
-.partSegment {
-    display: inline-block;
-    width: 80%;
-    border: 1px black;
-    padding: 5px;
 }

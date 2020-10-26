@@ -6,12 +6,12 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "../../../resources/icon/page/delete.svg";
 import EditIcon from "../../../resources/icon/page/edit.svg";
 import DropdownIcon from "../../../resources/icon/page/dots.svg";
-import { getUserName } from '../Security/authHeader';
+import { mapPartFields } from './partSpec';
 
 export default class PartDetails extends React.Component {
 
     renderDropdownMenu() {
-        if (!this.props.bicycle) {
+        if (!this.props.part) {
             return <div>Loading...</div>
         }
         return (
@@ -19,8 +19,8 @@ export default class PartDetails extends React.Component {
                 <div className="dropbtn"><img src={DropdownIcon} alt="delete" ></img></div>
                 <div className="dropdown-content">
                     <div><img src={DropdownIcon} alt="dots" ></img></div>
-                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
-                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
+                    <li><Link to={this.props.editLink}><img src={EditIcon} alt="edit" ></img></Link></li>
+                    <li><Link to={this.props.deleteLink}><img src={DeleteIcon} alt="delete" ></img></Link></li>
                 </div>
             </div>
         );
@@ -51,6 +51,9 @@ export default class PartDetails extends React.Component {
     }
 
     render() {
+
+        const part = this.props.part;
+        const type = this.props.part.product;
         return (
             <div className="page">
                 <div className="page-title-container">
@@ -58,7 +61,7 @@ export default class PartDetails extends React.Component {
                     {this.RenderGoBack()}
                 </div>
                 <div>
-                    {this.props.paragraphs.map((paragraph) => <div>{paragraph}</div>)}
+                    {mapPartFields(type, part).map((paragraph, i) => <div key={i}> {paragraph}</div>)}
                 </div>
             </div>
         );

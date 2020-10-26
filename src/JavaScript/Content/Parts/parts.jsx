@@ -1,31 +1,27 @@
-import React from 'react';
 import '../../Css/index.css';
-import Page from '../../Page/PageElements/article.jsx';
-import SubPage from '../../Page/PageElements/section';
+import React, { Component } from 'react';
+import ArticleBody from '../../Page/PageElements/article.jsx';
+import { Link } from "react-router-dom";
 
-const content = [
-    <div>
-        częsci
-    </div>
-]
+export default class Parts extends Component {
 
-const page = [
-    <SubPage
-        paragraphs={content}
-    />,
-]
-
-
-
-const Parts = () => {
-    return (
-        <Page 
-            title="Sekcja!"
-            paragraphs={page}
-            isBackButton={false}
+    renderPartTypes() {
+      return ([
+            <Link to={`/parts/frame`}><div className="bicycle"><h2>Rama</h2></div></Link>,
+            <Link to={`/parts/fork`}><div className="bicycle"><h2>Widelec</h2></div></Link>,
+            <Link to={`/parts/rearWheel`}><div className="bicycle"><h2>Koło tył</h2></div></Link>
+          ])
+    };
+  
+    render() {
+      return (
+        <ArticleBody
+          isBackButton='false'
+          title="Katalog części"
+          secondaryTitle="Zdefiniowane części o potwierdzonych konfiguracjach"
+          paragraphs={this.renderPartTypes()}
         />
-    );
-}
-
-
-export default Parts;
+      );
+    }
+  
+  }
