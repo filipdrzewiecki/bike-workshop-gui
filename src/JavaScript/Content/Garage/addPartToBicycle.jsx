@@ -9,14 +9,14 @@ import AddFrameForm from './addPartToBicycleForm';
 class AddPartToBicycle extends Component {
 
   onSubmit = (formValues) => {
-    this.props.addFrameToBicycle(this.props.match.params.id, formValues);
+    this.props.addFrameToBicycle(this.props.match.params.bike, formValues);
   }
 
   render() {
     return (
       <ArticleBody
         title="Dodaj ramę"
-        backButtonLink={`/${getUserName()}/garage/${this.props.match.params.id}`}
+        backButtonLink={`/${getUserName()}/garage/${this.props.match.params.bike}`}
         paragraphs={[
           <AddFrameForm onSubmit={this.onSubmit} send="Dodaj" />
         ]}

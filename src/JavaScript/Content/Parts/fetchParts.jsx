@@ -12,13 +12,13 @@ class FetchParts extends Component {
     }
 
     capitalizeFirstLetter(string) {
-        return string.charAt(0).toUpperCase() + string.slice(1);
+        if (string) {
+            return string.charAt(0).toUpperCase() + string.slice(1);
+
+        }
     }
 
-    renderBicycleList(parts) {
-        if (!parts) {
-            return "Loading:"
-        }
+    renderPartsList(parts) {
         return (
             <div>
                 {parts.map((part) => (
@@ -33,21 +33,25 @@ class FetchParts extends Component {
     };
 
     render() {
-        return (
-            <ArticleBody
-                backButtonLink={`/parts`}
-                title={this.capitalizeFirstLetter(this.props.match.params.part)}
-                paragraphs={[
-                    <Link to={`/parts/${this.props.match.params.part}/new`} ><div className="bicycle"><h2> Dodaj + </h2></div></Link>,
-                    <div> {this.renderBicycleList(this.props.parts)}</div>,
-                ]}
-            />
-        );
+        if (Array.isArray(this.props.parts) && this.props.parts.length) {
+            return (
+                <ArticleBody
+                    backButtonLink={`/parts`}
+                    title={this.capitalizeFirstLetter(this.props.match.params.part)}
+                    paragraphs={[
+                        <Link to={`/parts/${this.props.match.params.part}/new`} ><div className="bicycle"><h2> Dodaj + </h2></div></Link>,
+                        <div> {this.renderPartsList(this.props.parts)}</div>,
+                    ]}
+                />
+            );
+        }
+        return 'Loading';
     }
 }
 
 const mapStateToProps = (state) => {
-    return { parts: Object.values(state.parts)[0] }
+    const parts = state.parts.parts;
+    return { parts: parts }
 }
 
 export default connect(mapStateToProps, { fetchParts })(FetchParts);

@@ -1,5 +1,5 @@
 import bikeWorkshop from './bike-workshop-service.jsx'
-import * as API_ACTIONS from '../../actions/bicycleOperationTypes.jsx'
+import * as API_ACTIONS from '../../actions/apiActions.jsx'
 import history from '../../../history';
 import { authHeader } from '../../Page/Security/authHeader';
 import { getUserName }  from '../../Page/Security/authHeader';
@@ -52,6 +52,13 @@ export const fetchBicyclePart = (bicycle, part) =>  async dispatch => {
     dispatch({type: API_ACTIONS.FETCH_BICYCLE_PART, payload: response.data});
 }
 
+export const deleteBicyclePart = (bicycle, part) =>  async dispatch => {
+    const response = await bikeWorkshop.delete(`${getUserName()}/bicycles/${bicycle}/${part}`, {headers: authHeader()});
+    dispatch({type: API_ACTIONS.DELETE_BICYCLE_PART, payload: response.data});
+    history.push(`/${getUserName()}/garage/${bicycle}`)
+    refreshPage();
+}
+
  /* BICYCLE_PARTS */
 
  /* PARTS */
@@ -71,6 +78,12 @@ export const createPart = (partType, formValues) =>  async dispatch => {
     const response = await bikeWorkshop.post(`parts/${partType}`, formValues, {headers: authHeader()});
     dispatch({type: API_ACTIONS.CREATE_PART, payload: response.data});
     history.push(`/parts/${partType}`)
+}
+
+export const addExistingPartToBicycle = (bicycle, part, partId) =>  async dispatch => {
+    const response = await bikeWorkshop.post(`${getUserName()}/bicycles/${bicycle}/${part}/${partId}`, null, {headers: authHeader()});
+    dispatch({type: API_ACTIONS.ADD_EXISTRING_PART_TO_BICYCLE, payload: response.data});
+    history.push(`/${getUserName()}/garage/${bicycle}`)
 }
 
  /* PARTS */

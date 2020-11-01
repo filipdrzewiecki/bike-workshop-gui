@@ -14,4 +14,6 @@ export const FETCH_PART = 'FETCH_PART';
 export const FETCH_PARTS = 'FETCH_PARTS';
 export const EDIT_PART = 'EDIT_PART';
 export const DELETE_PART = 'DELETE_PART';
+export const ADD_EXISTRING_PART_TO_BICYCLE = 'ADD_EXISTRING_PART_TO_BICYCLE';
+
 

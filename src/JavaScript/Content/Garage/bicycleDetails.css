@@ -128,3 +128,11 @@
 .icon:hover {
     filter: opacity(100%);
 }
+
+.link a:visited {
+    color: rgb(167, 167, 167);
+}
+
+.link a:hover {
+    color: black;
+}

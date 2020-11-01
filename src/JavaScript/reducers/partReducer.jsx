@@ -1,4 +1,4 @@
-import { FETCH_BICYCLE_PART, ADD_BICYCLE_PART, FETCH_PARTS, FETCH_PART} from '../actions/bicycleOperationTypes.jsx'
+import { FETCH_BICYCLE_PART, ADD_BICYCLE_PART, FETCH_PARTS, FETCH_PART, ADD_EXISTRING_PART_TO_BICYCLE} from '../actions/apiActions.jsx'
 
 export default (state={}, action) => {
     switch(action.type) {
@@ -10,7 +10,8 @@ export default (state={}, action) => {
             return { ...state, part: action.payload};
         case FETCH_PARTS:
             return { ...state, parts: action.payload};
-        
+        case ADD_EXISTRING_PART_TO_BICYCLE:
+            return { ...state, bicycle: action.payload};
         default:
             return state;
         }

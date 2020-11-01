@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import PartDetails from './partDetails.jsx';
 import { fetchPart } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
+import { Link } from "react-router-dom";
 
 class FetchPart extends Component {
 
@@ -16,12 +17,14 @@ class FetchPart extends Component {
 
   renderBicycle() {
     const part = this.props.part;
-    const type = this.props.match.params.type;
+    const type = this.props.match.params.part;
     return (
       <PartDetails
         backButtonLink={`/parts/${type}`}
         deleteLink={`/parts/${this.props.part.product}/delete`}
         editLink={`/parts/${this.props.part.product}/edit`}
+        addToBicycleLink={<Link to={`/parts/${type}/${this.props.match.params.id}/add`}><span> DODAJ DO ROWERU </span></Link>
+      }
         title={<React.Fragment> {this.capitalizeFirstLetter(part.product)} {part.brand}</React.Fragment>}
         part={part}
         secondaryTitle={<div> {part.model} {part.series} {part.year} </div>}
@@ -38,7 +41,8 @@ class FetchPart extends Component {
 }
 
 const mapStateToProps = (state) => {
-  return { part: state.parts.part }
+  const part = state.parts.part;
+  return { part: part }
 }
 
 export default connect(mapStateToProps, { fetchPart })(FetchPart);

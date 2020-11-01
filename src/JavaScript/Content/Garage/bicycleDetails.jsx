@@ -6,8 +6,8 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "../../../resources/icon/page/delete.svg";
 import EditIcon from "../../../resources/icon/page/edit.svg";
 import DropdownIcon from "../../../resources/icon/page/dots.svg";
-import { getUserName } from '../Security/authHeader';
-import { MapType } from '../../Content/Garage/getBicycle';
+import { getUserName } from '../../Page/Security/authHeader';
+import { MapType } from './fetchBicycle';
 
 export default class BicycleDetails extends React.Component {
 
@@ -55,7 +55,11 @@ export default class BicycleDetails extends React.Component {
         if (part) {
             return <Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}`}> {part.brand} </Link>;
         }
-        return <Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}/add`}>dodaj +</Link>
+        return (
+            <div className="link">
+            <Link  to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}/new`}>stwórz </Link> | <Link  to={`/parts/${partName}`} >dodaj istniejący</Link>
+            </div>
+        );
     }
 
     render() {

@@ -1,6 +1,6 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
-import BicycleDetails from '../../Page/PageElements/bicycleDetails.jsx';
+import BicycleDetails from './bicycleDetails.jsx';
 import { getBicycle } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
 import { getUserName } from '../../Page/Security/authHeader';

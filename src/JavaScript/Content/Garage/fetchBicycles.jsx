@@ -4,7 +4,7 @@ import ArticleBody from '../../Page/PageElements/article.jsx';
 import { Link } from "react-router-dom";
 import { getBicycles } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
-import { MapType } from './getBicycle.jsx';
+import { MapType } from './fetchBicycle.jsx';
 import { getUserName } from '../../Page/Security/authHeader';
 
 class Bicycles extends Component {
@@ -42,7 +42,6 @@ class Bicycles extends Component {
       />
     );
   }
-
 }
 
 const mapStateToProps = (state) => {

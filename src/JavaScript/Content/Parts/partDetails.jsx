@@ -50,6 +50,12 @@ export default class PartDetails extends React.Component {
         );
     }
 
+    renderAddToBicycle() {
+        if (this.props.addToBicycleLink) {
+            return <div className="addPartButton"> {this.props.addToBicycleLink} </div>
+        }
+    }
+
     render() {
 
         const part = this.props.part;
@@ -61,6 +67,7 @@ export default class PartDetails extends React.Component {
                     {this.RenderGoBack()}
                 </div>
                 <div>
+                    {this.renderAddToBicycle()}
                     {mapPartFields(type, part).map((paragraph, i) => <div key={i}> {paragraph}</div>)}
                 </div>
             </div>

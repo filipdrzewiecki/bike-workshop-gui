@@ -30,7 +30,6 @@ function loginWithSuccess(response) {
           dispatch(loginWithSuccess(response))
           localStorage.setItem("token", response.data.token)
           localStorage.setItem("userName", response.data.userName)
-          localStorage.setItem("roles", response.data.roles)
           history.push(`/${response.data.userName}/garage`)
           window.location.reload();
         })
@@ -67,31 +66,3 @@ function loginWithSuccess(response) {
         })
     }
   }
-
-
-// export const registerUser = formValues =>  async dispatch => {
-//     const response = await auth.post(`http://localhost:8080/user/register`, formValues);
-
-//     dispatch({type: REGISTER, payload: response.data});
-
-//     history.push(`/login`)
-// }
-
-// export const getUser = formValues =>  async dispatch => {
-//     const response = await auth.post(`http://localhost:8080/authentication/login`, formValues);
-
-//     console.log(response.data.status)
-//     console.log(response.data.statusText)
-
-
-//     dispatch({type: LOG_IN, payload: response.data});
-
-    
-
-//     localStorage.setItem("token", response.data.token)
-//     localStorage.setItem("userName", response.data.userName)
-
-//     history.push(`/${response.data.userName}/garage`)
-
-//     window.location.reload();
-// }
