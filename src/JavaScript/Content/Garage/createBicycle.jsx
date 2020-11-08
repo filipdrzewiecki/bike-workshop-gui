@@ -1,6 +1,6 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
-import ArticleBody from '../../Page/PageElements/article.jsx';
+import ArticleBody from '../../Page/PageElements/menu.jsx';
 import { connect } from 'react-redux';
 import { createBicycle } from '../apis/api-router';
 import BicycleForm from './add-bicycle-form';

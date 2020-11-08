@@ -299,3 +299,34 @@ a:active {
 .icon:hover {
     filter: opacity(100%);
 }
+
+.page-top {
+    box-sizing: border-box;
+    padding: 10px 30px 10px 30px;
+    display: block;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.page-mid {
+    box-sizing: border-box;
+    padding: 10px 30px 10px 30px;
+    display: block;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    margin-bottom: 10px;
+    width: 100%;
+}
+
+.page-bottom {
+    box-sizing: border-box;
+    display: block;
+    width: 90%;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    width: 100%;
+    min-height: 100vh;
+    padding: 10px 30px 10px 30px;
+}

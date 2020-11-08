@@ -14,8 +14,8 @@ export const getBicycles = () =>  async dispatch => {
     dispatch({type: API_ACTIONS.GET_BICYCLES, payload: response.data});
 }
 
-export const getBicycle = (name) =>  async dispatch => {
-    const response = await bikeWorkshop.get(`${getUserName()}/bicycles/${name}`, {headers: authHeader()});
+export const getBicycle = (bicycleName) =>  async dispatch => {
+    const response = await bikeWorkshop.get(`${getUserName()}/bicycles/${bicycleName}`, {headers: authHeader()});
     dispatch({type: API_ACTIONS.GET_BICYCLE, payload: response.data});
 }
 
@@ -25,14 +25,14 @@ export const createBicycle = (formValues) =>  async dispatch => {
     history.push(`/${getUserName()}/garage`)
 }
 
-export const updateBicycle = (id, formValues) =>  async dispatch => {
-    const response = await bikeWorkshop.put(`${getUserName()}/bicycles/${id}`, formValues, {headers: authHeader()});
+export const updateBicycle = (bicycleName, formValues) =>  async dispatch => {
+    const response = await bikeWorkshop.put(`${getUserName()}/bicycles/${bicycleName}`, formValues, {headers: authHeader()});
     dispatch({type: API_ACTIONS.UPDATE_BICYCLE, payload: response.data});
     history.push(`/${getUserName()}/garage`)
 }
 
-export const deleteBicycle = (id) =>  async dispatch => {
-    const response = await bikeWorkshop.delete(`${getUserName()}/bicycles/${id}`, {headers: authHeader()});
+export const deleteBicycle = (bicycleName) =>  async dispatch => {
+    const response = await bikeWorkshop.delete(`${getUserName()}/bicycles/${bicycleName}`, {headers: authHeader()});
     dispatch({type: API_ACTIONS.DELETE_BICYCLE, payload: response.data});
     history.push(`/${getUserName()}/garage`)
     refreshPage();
@@ -87,4 +87,21 @@ export const addExistingPartToBicycle = (bicycle, part, partId) =>  async dispat
 }
 
  /* PARTS */
+
+ function mapParams(brand) {
+     if (brand) {
+        return new URLSearchParams({
+            brand: brand
+          }).toString();
+     }
+     return '';
+    
+}
+
+ export const fetchPartsWithFilters = (partType, brand) =>  async dispatch => {
+    const response = await bikeWorkshop.get(`parts/${partType}?${mapParams(brand)}`, {headers: authHeader()});
+    dispatch({type: API_ACTIONS.FETCH_PARTS_WITH_FILTERS, payload: response.data});
+
+}
+
 

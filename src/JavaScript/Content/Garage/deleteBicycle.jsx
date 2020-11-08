@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux';
-import {getBicycle, deleteBicycle} from '../apis/api-router';
+import { getBicycle, deleteBicycle } from '../apis/api-router';
 
 import Modal from '../../Page/PageElements/modal.jsx'
 import history from '../../../history.jsx'
@@ -21,8 +21,8 @@ class DeleteBicicyle extends React.Component {
   renderActions() {
     return (
       <React.Fragment>
-        <button onClick={() => this.props.deleteBicycle(this.props.match.params.id)} className="button-do">Usuń</button>
-        <Link className="button-dont" to={`/${getUserName()}/garage/${this.props.match.params.id}`}><span>WRÓĆ</span></Link>
+        <button onClick={() => this.props.deleteBicycle(this.props.match.params.bike)} className="button-do">Usuń</button>
+        <Link className="button-dont" to={`/${getUserName()}/garage/${this.props.match.params.bike}`}><span>WRÓĆ</span></Link>
       </React.Fragment>
     );
   }
@@ -35,17 +35,17 @@ class DeleteBicicyle extends React.Component {
       `Czy na pewno chcesz usunąć rower ${this.props.bicycle.name}?`
 
     );
-    
+
   }
 
   render() {
     return (
-        <Modal
-          header="Usuń rower"
-          content={this.renderContent()}
-          actions={this.renderActions()}
-          onDismiss={() => history.push(`/${getUserName()}/garage/${this.props.match.params.id}`)}
-        />
+      <Modal
+        header="Usuń rower"
+        content={this.renderContent()}
+        actions={this.renderActions()}
+        onDismiss={() => history.push(`/${getUserName()}/garage/${this.props.match.params.id}`)}
+      />
     );
   }
 
@@ -55,4 +55,4 @@ const mapStateToProps = (state, ownProps) => {
   return { bicycle: state.bicycles[ownProps.match.params.id] }
 }
 
-export default connect (mapStateToProps, {getBicycle, deleteBicycle} ) (DeleteBicicyle);
+export default connect(mapStateToProps, { getBicycle, deleteBicycle })(DeleteBicicyle);

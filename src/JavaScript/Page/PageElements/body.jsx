@@ -27,6 +27,7 @@ const PageBody = () => {
     return (
         <div className="pageBody">
             <Switch>
+                <div className="mainPage">
                 {/* LOGIN */}
                 <Route path="/login" exact component={LoginPage} />
                 
@@ -51,7 +52,7 @@ const PageBody = () => {
                 <Route path="/parts/:part/new" exact component={CreatePart} />
                 <Route path="/parts/:part/:id" exact component={FetchPart} />
                 <Route path="/parts/:part/:partId/add" exact component={AddExistingPartToBicycle} />
-
+                </div>
             </Switch>
         </div>
     );
