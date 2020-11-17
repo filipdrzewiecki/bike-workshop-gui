@@ -34,7 +34,7 @@ class Bicycle extends Component {
 
   render() {
     if (!this.props.bicycle) {
-      return <div>Loading...</div>
+      return <div className="fetchBicycle">Loading...</div>
     }
     return this.renderBicycle();
   }

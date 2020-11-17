@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import PartDetails from './partDetails.jsx';
 import { fetchPart } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
-import { Link } from "react-router-dom";
 
 class FetchPart extends Component {
 
@@ -23,8 +22,7 @@ class FetchPart extends Component {
         backButtonLink={`/parts/${type}`}
         deleteLink={`/parts/${this.props.part.product}/delete`}
         editLink={`/parts/${this.props.part.product}/edit`}
-        addToBicycleLink={<Link to={`/parts/${type}/${this.props.match.params.id}/add`}><span> DODAJ DO ROWERU </span></Link>
-      }
+        addToBicycleLink={`/parts/${type}/${this.props.match.params.id}/add`}
         title={<React.Fragment> {this.capitalizeFirstLetter(part.product)} {part.brand}</React.Fragment>}
         part={part}
         secondaryTitle={<div> {part.model} {part.series} {part.year} </div>}

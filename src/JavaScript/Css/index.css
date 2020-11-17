@@ -12,21 +12,6 @@ a {
     text-decoration: none;
 }
 
-a:visited {
-    color: #282c34;
-    text-decoration: none;
-}
-
-a:hover {
-    color: goldenrod;
-    text-decoration: none;
-}
-
-a:active {
-    color: goldenrod;
-    text-decoration: none;
-}
-
 .logo {
     position: relative;
     background-size: cover;
@@ -301,9 +286,9 @@ a:active {
 }
 
 .page-top {
+    display: flex;
     box-sizing: border-box;
     padding: 10px 30px 10px 30px;
-    display: block;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.25);
     margin-bottom: 10px;
@@ -329,4 +314,37 @@ a:active {
     width: 100%;
     min-height: 100vh;
     padding: 10px 30px 10px 30px;
+}
+
+.mainPage {
+    width: 100%;
+}
+
+.add-part-button {
+    margin: 10px 0 20px 0px;
+    background-color: #008CBA;
+    border: 2px solid #008CBA;
+    border-radius: 4px;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin-right: 4px;
+    cursor: pointer;
+    height: 40px;
+    width: 30%;
+    min-height: 40px;
+}
+
+.add-part-button:hover {
+    background-color: white;
+    border: 2px solid #008CBA;
+    color: black;
+}
+
+.add-part-button:visited {
+    background-color: white;
+    border: 2px solid #008CBA;
+    color: white;
 }

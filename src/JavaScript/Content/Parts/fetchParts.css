@@ -51,7 +51,6 @@
 .page-top {
     box-sizing: border-box;
     padding: 10px 30px 10px 30px;
-    display: block;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.25);
     margin-bottom: 10px;
@@ -131,6 +130,7 @@
     height: 40%;
     margin: 0px 10px 0px 10px;
     width: 100%;
+    min-height: 40px;
 }
 
 .search-button:hover {
@@ -142,10 +142,6 @@
 @media (max-width: 800px) {
     .searchBoxes {
         flex-direction: column;
-    }
-    p {
-        writing-mode: vertical-rl;
-        text-orientation: upright;
     }
     .search-button {
         height: 100%;

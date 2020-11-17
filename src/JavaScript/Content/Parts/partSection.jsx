@@ -1,5 +1,4 @@
-import './partDetails.css';
-import '../../Css/dropdownMenu.css';
+import './partSection.css';
 import React from 'react';
 
 export default class PartDetails extends React.Component {
@@ -7,10 +6,10 @@ export default class PartDetails extends React.Component {
     render() {
         return (
             <div>
-                <div className="pageContentTitle">
+                <div className="part-section-title">
                     {this.props.sectionTitle}
                 </div>
-                <div className="pageContent">
+                <div className="part-details">
                     {this.props.fields.map((field, i) =>
                         <div className="contentField" key={i}>
                             <div className="fieldName">{field.props.name}:  </div>

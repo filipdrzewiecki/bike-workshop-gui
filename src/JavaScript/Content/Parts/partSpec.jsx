@@ -3,19 +3,18 @@ import PartSection from './partSection.jsx';
 import * as partTypes from './PART_TYPES.jsx';
 import Field from './Field';
 
-
 function mapFrame(part) {
-    const type = <Field name='Typ' value={part.purpose} formValue='purpose'/>
-    const size = <Field name='Rozmiar' value={part.size} formValue='size'/>
-    const weight = <Field name='Waga' value={part.weight} formValue='weight'/>
-    const bbType = <Field name='Typ' value={part.bottomBracketType} formValue='bottomBracketType'/>
-    const bbSize = <Field name='Wymiary' value={part.bottomBracketSize} formValue='bottomBracketSize'/>
-    const forkTubeType = <Field name='Taper' value={part.forkTubeType} formValue='forkTubeType'/>
-    const headsetType = <Field name='Stery' value={part.headsetType} formValue='headsetType'/>
-    const rearWheelAxleSize = <Field name='Tylna oś' value={part.rearWheelAxleSize} formValue='rearWheelAxleSize'/>
-    const brakeType = <Field name='Typ hamulca' value={part.brakeType} formValue='brakeType'/>
-    const seatpostCaliperDiameter = <Field name='Zacisk sztycy' value={part.seatpostCaliperDiameter} formValue='seatpostCaliperDiameter'/>
-    const seatpostSize = <Field name='Wymiar sztycy' value={part.seatpostSize} formValue='seatpostSize'/>
+    const type = <Field name='Typ' value={part.purpose} formValue='purpose' />
+    const size = <Field name='Rozmiar' value={part.size} formValue='size' />
+    const weight = <Field name='Waga' value={part.weight} formValue='weight' />
+    const bbType = <Field name='Typ' value={part.bottomBracketType} formValue='bottomBracketType' />
+    const bbSize = <Field name='Wymiary' value={part.bottomBracketSize} formValue='bottomBracketSize' />
+    const forkTubeType = <Field name='Taper' value={part.forkTubeType} formValue='forkTubeType' />
+    const headsetType = <Field name='Stery' value={part.headsetType} formValue='headsetType' />
+    const rearWheelAxleSize = <Field name='Tylna oś' value={part.rearWheelAxleSize} formValue='rearWheelAxleSize' />
+    const brakeType = <Field name='Typ hamulca' value={part.brakeType} formValue='brakeType' />
+    const seatpostCaliperDiameter = <Field name='Zacisk sztycy' value={part.seatpostCaliperDiameter} formValue='seatpostCaliperDiameter' />
+    const seatpostSize = <Field name='Wymiar sztycy' value={part.seatpostSize} formValue='seatpostSize' />
 
     return ([
         <PartSection key='Ogólne'
@@ -36,6 +35,7 @@ function mapFrame(part) {
         />
     ]);
 }
+
 
 function mapFork(part) {
     return ([

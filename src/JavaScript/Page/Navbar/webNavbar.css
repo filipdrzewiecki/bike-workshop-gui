@@ -22,7 +22,7 @@
 }
 
 .navbar_web a,
-button {
+.navbar_web button {
     color: white;
     font-family: Arial, Helvetica, sans-serif;
     text-transform: uppercase;
@@ -34,7 +34,7 @@ button {
 }
 
 .navbar_web a:hover,
-button:hover {
+.navbar_web button:hover {
     color: lightblue;
     text-decoration: none;
     transition-duration: 0.4s;

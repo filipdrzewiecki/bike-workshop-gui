@@ -1,6 +1,6 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
-import ArticleBody from '../../Page/PageElements/menu.jsx';
+import Body from '../../Page/PageElements/menu.jsx';
 import { connect } from 'react-redux';
 import { createPart } from '../apis/api-router';
 import PartForm from './createPartForm';
@@ -8,13 +8,13 @@ import PartForm from './createPartForm';
 class CreatePart extends Component {
 
   onSubmit = (formValues) => {
-    this.props.createPart(this.props.match.params.type, formValues);
+    this.props.createPart(this.props.match.params.part, formValues);
   }
 
   render() {
-    const type = this.props.match.params.type;
+    const type = this.props.match.params.part;
     return (
-      <ArticleBody
+      <Body
         title={`Dodaj ${type}`}
         backButtonLink={`/parts/${type}`}
         paragraphs={[

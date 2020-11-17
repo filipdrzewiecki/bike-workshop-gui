@@ -37,9 +37,10 @@ export default class Menu extends React.Component {
         );
     }
 
+
     render() {
         return (
-            <React.Fragment>
+            <div className="mainPage">
                 <div className="page-top">
                     {this.renderTitle(this.props.title, this.props.secondaryTitle)}
                     {this.renderGoBack(this.props.backButtonLink)}
@@ -47,7 +48,7 @@ export default class Menu extends React.Component {
                 <div className="page-bottom">
                     {this.props.paragraphs.map((paragraph, i) => <div key={i} className="section">{paragraph}</div>)}
                 </div>
-            </React.Fragment>
+            </div>
         );
     }
 }

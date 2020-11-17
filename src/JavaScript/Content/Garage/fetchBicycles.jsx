@@ -1,6 +1,6 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
-import ArticleBody from '../../Page/PageElements/menu.jsx';
+import Page from '../../Page/PageElements/menu.jsx';
 import { Link } from "react-router-dom";
 import { getBicycles } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
@@ -32,7 +32,7 @@ class Bicycles extends Component {
 
   render() {
     return (
-      <ArticleBody
+      <Page
         isBackButton='false'
         title="Twoje rowery"
         paragraphs={[

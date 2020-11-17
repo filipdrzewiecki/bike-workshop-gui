@@ -1,5 +1,3 @@
-import './partDetails.css';
-import '../../Css/dropdownMenu.css';
 import React from 'react';
 import IconGoBack from '../../../resources/icon/go-back.png';
 import { Link } from "react-router-dom";
@@ -52,7 +50,7 @@ export default class PartDetails extends React.Component {
 
     renderAddToBicycle() {
         if (this.props.addToBicycleLink) {
-            return <div className="addPartButton"> {this.props.addToBicycleLink} </div>
+            return <Link to={this.props.addToBicycleLink}><button className="add-part-button"> DODAJ DO ROWERU </button></Link>
         }
     }
 
@@ -61,14 +59,14 @@ export default class PartDetails extends React.Component {
         const part = this.props.part;
         const type = this.props.part.product;
         return (
-            <div className="page">
-                <div className="page-title-container">
+            <div className="mainPage">
+                <div className="page-top">
                     {this.RenderTitle()}
                     {this.RenderGoBack()}
                 </div>
-                <div>
-                    {this.renderAddToBicycle()}
+                <div className="page-bottom">
                     {mapPartFields(type, part).map((paragraph, i) => <div key={i}> {paragraph}</div>)}
+                    {this.renderAddToBicycle()}
                 </div>
             </div>
         );

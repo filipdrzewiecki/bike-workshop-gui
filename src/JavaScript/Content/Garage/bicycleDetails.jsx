@@ -64,12 +64,12 @@ export default class BicycleDetails extends React.Component {
 
     render() {
         return (
-            <div className="page">
-                <div className="page-title-container">
+            <div className="mainPage">
+                <div className="page-top">
                     {this.RenderTitle()}
                     {this.RenderGoBack()}
                 </div>
-                <div className="pageContent">
+                <div className="page-bottom">
                     <div className="contentField">
                         <div className="fieldName">Typ:  </div>
                         <div className="fieldValue"><MapType type={this.props.bicycle.type} /></div>

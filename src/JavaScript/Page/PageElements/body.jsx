@@ -1,9 +1,9 @@
 import './body.css';
 import React from 'react';
-import { Route, Switch, Redirect } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 //Garage
 import FetchBicycles from '../../Content/Garage/fetchBicycles.jsx';
-import AddBicycle from '../../Content/Garage/createBicycle.jsx';
+import CreateBicycle from '../../Content/Garage/createBicycle.jsx';
 import FetchBicycle from '../../Content/Garage/fetchBicycle.jsx';
 import UpdateBicycle from '../../Content/Garage/updateBicycle.jsx';
 import DeleteBicycle from '../../Content/Garage/deleteBicycle.jsx';
@@ -27,15 +27,13 @@ const PageBody = () => {
     return (
         <div className="pageBody">
             <Switch>
-                <div className="mainPage">
                 {/* LOGIN */}
                 <Route path="/login" exact component={LoginPage} />
                 
                 {/* GARAGE */}
                 <Route path="/" exact component={FetchBicycles} />
-                <Redirect exact from="/" to="/:user/garage" />
                 <Route path="/:user/garage" exact component={FetchBicycles} />
-                <Route path="/:user/garage/new" exact component={AddBicycle} />
+                <Route path="/:user/garage/new" exact component={CreateBicycle} />
                 <Route path="/:user/garage/:bike" exact component={FetchBicycle} />
                 <Route path="/:user/garage/:bike/edit" exact component={UpdateBicycle} />
                 <Route path="/:user/garage/:bike/delete" exact component={DeleteBicycle} />
@@ -52,7 +50,6 @@ const PageBody = () => {
                 <Route path="/parts/:part/new" exact component={CreatePart} />
                 <Route path="/parts/:part/:id" exact component={FetchPart} />
                 <Route path="/parts/:part/:partId/add" exact component={AddExistingPartToBicycle} />
-                </div>
             </Switch>
         </div>
     );
