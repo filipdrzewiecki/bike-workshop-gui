@@ -73,6 +73,7 @@
     width: 90%;
     background-color: white;
     border: 1px solid rgba(0, 0, 0, 0.25);
+    border-bottom: 0px;
     width: 100%;
     min-height: 100vh;
     padding: 10px 30px 10px 30px;
@@ -149,4 +150,39 @@
         width: 100%;
         padding: 0%;
     }
+}
+
+.pagination {
+    display: inline-block;
+}
+
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+}
+
+.pagination a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.pagination a:hover:not(.active) {
+    background-color: #ddd;
+}
+
+.paginationButton {
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+}
+
+.active {
+    background-color: #f1f1f1;
 }

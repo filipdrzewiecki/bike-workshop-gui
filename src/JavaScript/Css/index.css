@@ -316,6 +316,18 @@ a {
     padding: 10px 30px 10px 30px;
 }
 
+.page-pagination {
+    justify-content: center;
+    box-sizing: border-box;
+    display: flex;
+    width: 90%;
+    background-color: white;
+    border: 1px solid rgba(0, 0, 0, 0.25);
+    border-top: 0px;
+    width: 100%;
+    padding: 10px 30px 10px 30px;
+}
+
 .mainPage {
     width: 100%;
 }

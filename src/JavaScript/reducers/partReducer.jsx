@@ -9,9 +9,9 @@ export default (state={}, action) => {
         case FETCH_PART:
             return { ...state, part: action.payload};
         case FETCH_PARTS:
-            return { ...state, parts: action.payload};
+            return { ...state, parts: action.payload.content};
         case FETCH_PARTS_WITH_FILTERS:
-            return { ...state, parts: action.payload};
+            return { ...state, payload: action.payload};
         case ADD_EXISTRING_PART_TO_BICYCLE:
             return { ...state, bicycle: action.payload};
         default:

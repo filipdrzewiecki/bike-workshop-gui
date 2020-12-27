@@ -88,18 +88,12 @@ export const addExistingPartToBicycle = (bicycle, part, partId) =>  async dispat
 
  /* PARTS */
 
- function mapParams(brand) {
-     if (brand) {
-        return new URLSearchParams({
-            brand: brand
-          }).toString();
-     }
-     return '';
-    
-}
 
- export const fetchPartsWithFilters = (partType, brand) =>  async dispatch => {
-    const response = await bikeWorkshop.get(`parts/${partType}?${mapParams(brand)}`, {headers: authHeader()});
+
+ export const fetchPartsWithFilters = (partType, filters) =>  async dispatch => {
+    console.log("filtry")
+     console.log(filters)
+    const response = await bikeWorkshop.get(`parts/${partType}?` + filters, {headers: authHeader()});
     dispatch({type: API_ACTIONS.FETCH_PARTS_WITH_FILTERS, payload: response.data});
 
 }
