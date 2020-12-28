@@ -10,7 +10,17 @@ export default class SearchBoxes extends Component {
                 <div className="searchBox">
                     <label>Marka:</label>
                     <br></br>
-                    <input type="text" id="brand" name="brand" onChange={this.props.handleChange} />
+                    <input type="text" id="brand" name="brand" onChange={this.props.handleInputChange} />
+                </div>
+                <div className="searchBox">
+                    <label>Model:</label>
+                    <br></br>
+                    <input type="text" id="model" name="model" onChange={this.props.handleInputChange} />
+                </div>
+                <div className="searchBox">
+                    <label>Rok:</label>
+                    <br></br>
+                    <input type="text" id="year" name="year" onChange={this.props.handleInputChange} />
                 </div>
             </React.Fragment>
         );
