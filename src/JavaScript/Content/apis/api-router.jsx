@@ -88,14 +88,11 @@ export const addExistingPartToBicycle = (bicycle, part, partId) =>  async dispat
 
  /* PARTS */
 
-
-
  export const fetchPartsWithFilters = (partType, filters) =>  async dispatch => {
     console.log("filtry")
      console.log(filters)
     const response = await bikeWorkshop.get(`parts/${partType}?` + filters, {headers: authHeader()});
     dispatch({type: API_ACTIONS.FETCH_PARTS_WITH_FILTERS, payload: response.data});
-
 }
 
 

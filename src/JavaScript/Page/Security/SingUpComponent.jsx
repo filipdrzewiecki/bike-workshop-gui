@@ -26,6 +26,7 @@ class SignUpComponent extends React.Component {
             <div>
                 <h1>SignUp Form</h1>
                 <form onSubmit={this.onSubmit}>
+
                     <input 
                         type="text" 
                         name="username" 

@@ -36,7 +36,6 @@ function mapFrame(part) {
     ]);
 }
 
-
 function mapFork(part) {
     return ([
         // <PartSection
@@ -71,3 +70,4 @@ export function mapPartFieldsToForm(type, part) {
             return [];
     }
 }
+

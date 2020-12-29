@@ -5,65 +5,50 @@ import { Link } from "react-router-dom";
 
 export default class PartsTable extends Component {
 
-    renderFrameTable(parts) {
+    renderContentTable(parts, fields) {
         return (
-            <div>
-                <div className="bar-main">
-                    <div className="cell"> Marka </div>
-                    <div className="cell"> Model </div>
-                    <div className="cell"> Rok </div>
-                    <div className="cell"> Rozmiar </div>
-                </div>
-                {parts.map((part) => (
-                    <Link to={`/parts/${part.product}/${part.productId}`} key={part.id}>
-                        <div className="bar">
-                            <div className="cell"> {part.brand} </div>
-                            <div className="cell"> {part.model} </div>
-                            <div className="cell"> {part.year} </div>
-                            <div className="cell"> {part.size} </div>
-                        </div>
-                    </Link>
-                ))}
-            </div>
+            <React.Fragment>
+                {this.renderColumnNames(fields)}
+                {this.renderColumns(parts, fields)}
+            </React.Fragment>
         )
     }
 
-    renderForkTable(parts) {
+    renderColumns(parts, fields) {
         return (
-            <div>
-                <div className="bar-main">
-                    <div className="cell"> Marka </div>
-                    <div className="cell"> Model </div>
-                    <div className="cell"> Rok </div>
-                    <div className="cell"> Skok </div>
-                    <div className="cell"> Koło </div>
-                </div>
+            <React.Fragment>
                 {parts.map((part) => (
                     <Link to={`/parts/${part.product}/${part.productId}`} key={part.id}>
                         <div className="bar">
-                            <div className="cell"> {part.brand} </div>
-                            <div className="cell"> {part.model} </div>
-                            <div className="cell"> {part.year} </div>
-                            <div className="cell"> {part.travel} </div>
-                            <div className="cell"> {part.wheel} </div>
+                            {fields.map((field) => (
+                                <div className="cell"> {part[field]} </div>
+                            ))}
                         </div>
                     </Link>
                 ))}
+            </React.Fragment>
+        );
+    }
+
+    renderColumnNames(fields) {
+        return (
+            <div className="bar-main">
+                {fields.map((field) => (
+                    <div className="cell"> {field.toUpperCase()} </div>
+                ))}
             </div>
-        )
+        );
+
     }
 
     render() {
         const type = this.props.type;
         const parts = this.props.parts;
+        const spec = partTypes.findSpec(type);
 
-        switch (type) {
-            case partTypes.FRAME:
-                return this.renderFrameTable(parts);
-            case partTypes.FORK:
-                return this.renderForkTable(parts);
-            default:
-                return [];
+        if (spec) {
+            return this.renderContentTable(parts, spec.fields);
         }
+        return [];
     }
 }
