@@ -17,11 +17,11 @@ export default class PartsTable extends Component {
     renderColumns(parts, fields) {
         return (
             <React.Fragment>
-                {parts.map((part) => (
+                {parts.map((part, i) => (
                     <Link to={`/parts/${part.product}/${part.productId}`} key={part.id}>
-                        <div className="bar">
-                            {fields.map((field) => (
-                                <div className="cell"> {part[field]} </div>
+                        <div className="bar" key={i}>
+                            {fields.map((field, i) => (
+                                <div className="cell" key={i}> {part[field]} </div>
                             ))}
                         </div>
                     </Link>
@@ -33,8 +33,8 @@ export default class PartsTable extends Component {
     renderColumnNames(fields) {
         return (
             <div className="bar-main">
-                {fields.map((field) => (
-                    <div className="cell"> {field.toUpperCase()} </div>
+                {fields.map((field, i) => (
+                    <div className="cell" key={i}> {field.toUpperCase()} </div>
                 ))}
             </div>
         );

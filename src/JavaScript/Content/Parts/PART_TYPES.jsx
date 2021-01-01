@@ -7,6 +7,8 @@ const WEIGHT = 'weight';
 export const FRAME = 'frame';
 export const FORK = 'fork';
 
+export const FIELDS = [BRAND, MODEL, YEAR, SIZE, WEIGHT]
+
 export const FRAME_SPEC = {
     name: FRAME,
     searchBoxes: [BRAND, MODEL, YEAR],
@@ -15,8 +17,8 @@ export const FRAME_SPEC = {
 
 export const FORK_SPEC = {
     name: FORK,
-    searchBoxes: [BRAND, MODEL],
-    fields: [BRAND, MODEL]
+    searchBoxes: [BRAND, MODEL, YEAR],
+    fields: [BRAND, MODEL, YEAR, WEIGHT]
 }
 
 export const SPECIALIZATION = [FRAME_SPEC, FORK_SPEC]

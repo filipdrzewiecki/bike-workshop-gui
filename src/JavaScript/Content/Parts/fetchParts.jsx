@@ -5,11 +5,11 @@ import { Link } from "react-router-dom";
 import { fetchPartsWithFilters } from "../apis/api-router.jsx"
 import { connect } from 'react-redux';
 import IconGoBack from '../../../resources/icon/go-back.png';
-import SearchBoxes from './PartSpecializationSearchBoxes.jsx';
+import SearchBoxes from './PartSpecializationSearch.jsx';
+import { renderParams } from './PartSpecializationSearch';
 import PartsTable from './PartSpecializationTable.jsx';
 import { capitalizeFirstLetter } from '../../Page/PageElements/Utils.jsx'
 import Pagination from './pagination.jsx'
-import { renderParams } from './PartSpecializationParams';
 
 class FetchParts extends Component {
 
@@ -25,21 +25,20 @@ class FetchParts extends Component {
     }
 
     handleInputChange(event) {
-        console.log("evemt")
-        console.log(event.target)
-        if(event.target.name === 'brand') {
-            this.setState({ brand: event.target.value});
+        if (event.target.name === 'brand') {
+            this.setState({ brand: event.target.value });
+            console.log("brand: " + event.target.value )
         }
-        if(event.target.name === 'model') {
-            this.setState({ model: event.target.value});
+        if (event.target.name === 'model') {
+            this.setState({ model: event.target.value });
         }
-        if(event.target.name === 'year') {
-            this.setState({ year: event.target.value});
+        if (event.target.name === 'year') {
+            this.setState({ year: event.target.value });
         }
     }
 
     mapParams() {
-        return renderParams(this.props.match.params.part, this.state);
+        return renderParams(this.state);
     }
 
     componentDidMount() {
@@ -53,13 +52,13 @@ class FetchParts extends Component {
         return []
     }
 
-    renderPages() {
-        return <Pagination 
-        number={this.props.pageable.number} 
-        totalPages={this.props.pageable.totalPages} 
-        part={this.props.match.params.part} 
-        filters={this.state} 
-        params={this.mapParams()}
+    rengerPagination() {
+        return <Pagination
+            number={this.props.pageable.number}
+            totalPages={this.props.pageable.totalPages}
+            part={this.props.match.params.part}
+            filters={this.state}
+            params={this.mapParams()}
         />
     }
 
@@ -80,10 +79,10 @@ class FetchParts extends Component {
                 <div className="page-mid">
                     <div className="searchSection">
                         <div className="searchBoxes">
-                            <SearchBoxes type={this.props.match.params.part} handleInputChange={this.handleInputChange}/>
+                            <SearchBoxes type={this.props.match.params.part} handleInputChange={this.handleInputChange} />
                         </div>
                         <div className="search-button-container">
-                            <button onClick={() => this.props.fetchPartsWithFilters(this.props.match.params.part, this.mapParams(this.state.currentPage))} className="search-button">SZUKAJ</button>
+                            <button onClick={() => this.props.fetchPartsWithFilters(this.props.match.params.part, this.mapParams(this.state.currentPage))} className="search-button">SEARCH</button>
                         </div>
 
                     </div>
@@ -91,12 +90,12 @@ class FetchParts extends Component {
 
                 <div className="page-bottom">
                     <div>
-                        <div className="yelloLink"><Link to={`/parts/${this.props.match.params.part}/new`} >NOWY + </Link></div>
+                        <div className="yelloLink"><Link to={`/parts/${this.props.match.params.part}/new`}> NEW + </Link></div>
                         {this.renderList()}
                     </div>
                 </div>
                 <div className="page-pagination">
-                    {this.renderPages()}
+                    {this.rengerPagination()}
                 </div>
             </div>
         );
@@ -108,7 +107,7 @@ const mapStateToProps = (state) => {
         const payload = state.parts.payload;
         return { parts: payload.content, pageable: payload }
     }
-    return { parts: [], pageable: {}}
+    return { parts: [], pageable: {} }
 }
 
 export default connect(mapStateToProps, { fetchPartsWithFilters })(FetchParts);
