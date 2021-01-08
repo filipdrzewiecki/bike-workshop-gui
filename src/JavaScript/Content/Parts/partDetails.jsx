@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import DeleteIcon from "../../../resources/icon/page/delete.svg";
 import EditIcon from "../../../resources/icon/page/edit.svg";
 import DropdownIcon from "../../../resources/icon/page/dots.svg";
-import { mapPartFields } from './partSpec';
+import PartSections from './partSections';
 
 export default class PartDetails extends React.Component {
 
@@ -55,7 +55,6 @@ export default class PartDetails extends React.Component {
     }
 
     render() {
-
         const part = this.props.part;
         const type = this.props.part.product;
         return (
@@ -65,8 +64,10 @@ export default class PartDetails extends React.Component {
                     {this.RenderGoBack()}
                 </div>
                 <div className="page-bottom">
-                    {mapPartFields(type, part).map((paragraph, i) => <div key={i}> {paragraph}</div>)}
+                    <PartSections type={type} part={part}/>
                     {this.renderAddToBicycle()}
+                </div>
+                <div className="page-pagination">
                 </div>
             </div>
         );

@@ -18,6 +18,7 @@ class CreatePartForm extends Component {
     const type = <FieldForm name='Typ' value={part.purpose} formValue='purpose' />
     const size = <FieldForm name='Rozmiar' value={part.size} formValue='size' />
     const weight = <FieldForm name='Waga' value={part.weight} formValue='weight' />
+    const wheelSize = <FieldForm name='wheelSize' value={part.wheelSize} formValue='wheelSize' />
 
     const bbType = <FieldForm name='Typ' value={part.bottomBracketType} formValue='bottomBracketType' />
     const bbSize = <FieldForm name='Wymiary' value={part.bottomBracketSize} formValue='bottomBracketSize' />
@@ -33,7 +34,7 @@ class CreatePartForm extends Component {
 
     return ([
       this.renderForm('Produkt', [id, brand, model, series, year]),
-      this.renderForm('Ogólne', [type, size, weight]),
+      this.renderForm('Ogólne', [type, size, weight, wheelSize]),
       this.renderForm('Suport', [bbType, bbSize]),
       this.renderForm('Rura sterowa', [forkTubeType, headsetType]),
       this.renderForm('Inne', [rearWheelAxleSize, brakeType, seatpostCaliperDiameter, seatpostSize])
@@ -43,7 +44,7 @@ class CreatePartForm extends Component {
   renderForm(sectionTitle, fields) {
     return (
       <div>
-        <div className="pageContentTitle">
+        <div className="part-section-title">
           {sectionTitle}
         </div>
         <div className="pageContent">

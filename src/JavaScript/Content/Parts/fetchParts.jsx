@@ -18,7 +18,10 @@ class FetchParts extends Component {
         this.state = {
             brand: "",
             model: "",
+            series: "",
             year: "",
+            size: "",
+            wheelSize: "",
             currentPage: this.props.pageable.number != null ? this.props.pageable.number : 0
         };
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,9 +35,19 @@ class FetchParts extends Component {
         if (event.target.name === 'model') {
             this.setState({ model: event.target.value });
         }
+        if (event.target.name === 'series') {
+            this.setState({ series: event.target.value });
+        }
         if (event.target.name === 'year') {
             this.setState({ year: event.target.value });
         }
+        if (event.target.name === 'size') {
+            this.setState({ size: event.target.value });
+        }
+        if (event.target.name === 'wheelSize') {
+            this.setState({ wheelSize: event.target.value });
+        }
+    
     }
 
     mapParams() {

@@ -2,25 +2,31 @@ import '../../Css/index.css';
 import React, { Component } from 'react';
 import ArticleBody from '../../Page/PageElements/menu.jsx';
 import { Link } from "react-router-dom";
+import * as partTypes from './PART_TYPES.jsx';
 
 export default class Parts extends Component {
 
-    renderPartTypes() {
-      return ([
-            <Link to={`/parts/frame`}><div className="bicycle"><h2>Rama</h2></div></Link>,
-            <Link to={`/parts/fork`}><div className="bicycle"><h2>Widelec</h2></div></Link>,
-            <Link to={`/parts/rearWheel`}><div className="bicycle"><h2>Koło tył</h2></div></Link>
-          ])
+  renderPartTypes() {
+    const parts = partTypes.PART_LIST;
+    return ([
+      <React.Fragment>
+        {
+          parts.map((part, i) => (
+            <Link to={`/parts/${part}`} key={i}><div className="bicycle"><h2>{part}</h2></div></Link>
+          ))
+        }
+      </React.Fragment>
+    ])
     };
-  
-    render() {
-      return (
-        <ArticleBody
-          isBackButton='false'
-          title="Katalog części"
-          secondaryTitle="Zdefiniowane części o potwierdzonych konfiguracjach"
-          paragraphs={this.renderPartTypes()}
-        />
-      );
-    }
+
+  render() {
+    return (
+      <ArticleBody
+        isBackButton='false'
+        title="Katalog części"
+        secondaryTitle="Zdefiniowane części o potwierdzonych konfiguracjach"
+        paragraphs={this.renderPartTypes()}
+      />
+    );
   }
+}

@@ -5,23 +5,23 @@ import { Link } from "react-router-dom";
 
 export default class PartsTable extends Component {
 
-    renderContentTable(parts, fields) {
+    renderContentTable(parts, columns) {
         return (
             <React.Fragment>
-                {this.renderColumnNames(fields)}
-                {this.renderColumns(parts, fields)}
+                {this.renderColumnNames(columns)}
+                {this.renderColumns(parts, columns)}
             </React.Fragment>
         )
     }
 
-    renderColumns(parts, fields) {
+    renderColumns(parts, columns) {
         return (
             <React.Fragment>
                 {parts.map((part, i) => (
                     <Link to={`/parts/${part.product}/${part.productId}`} key={part.id}>
                         <div className="bar" key={i}>
-                            {fields.map((field, i) => (
-                                <div className="cell" key={i}> {part[field]} </div>
+                            {columns.map((column, i) => (
+                                <div className="cell" key={i}> {part[column]} </div>
                             ))}
                         </div>
                     </Link>
@@ -30,11 +30,11 @@ export default class PartsTable extends Component {
         );
     }
 
-    renderColumnNames(fields) {
+    renderColumnNames(columns) {
         return (
             <div className="bar-main">
-                {fields.map((field, i) => (
-                    <div className="cell" key={i}> {field.toUpperCase()} </div>
+                {columns.map((column, i) => (
+                    <div className="cell" key={i}> {column.toUpperCase()} </div>
                 ))}
             </div>
         );
@@ -47,7 +47,7 @@ export default class PartsTable extends Component {
         const spec = partTypes.findSpec(type);
 
         if (spec) {
-            return this.renderContentTable(parts, spec.fields);
+            return this.renderContentTable(parts, spec.columns);
         }
         return [];
     }
