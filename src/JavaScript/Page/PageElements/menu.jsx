@@ -48,6 +48,8 @@ export default class Menu extends React.Component {
                 <div className="page-bottom">
                     {this.props.paragraphs.map((paragraph, i) => <div key={i} className="section">{paragraph}</div>)}
                 </div>
+                <div className="page-pagination">
+                </div>
             </div>
         );
     }

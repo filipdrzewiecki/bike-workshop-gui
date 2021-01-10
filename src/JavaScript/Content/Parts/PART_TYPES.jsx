@@ -41,6 +41,24 @@ export const FRAME_SPEC = {
         {name: BOTTOM_BRACKET, fields: [BB_TYPE, BB_SIZE]},
         {name: STEERING, fields: [FORK_TUBE_TYPE, HEADSET_TYPE]},
         {name: OTHER, fields: [READ_WHEEL_AXLE_SIZE, BRAKE_TYPE, SEATPOST_CALIPER_DIAMETER, SEATPOST_SIZE]}
+    ],
+    form: [
+        {
+            name: GENERAL, 
+            fields: [BRAND, MODEL, SERIES, YEAR, SIZE, WHEEL_SIZE, WEIGHT]
+        },
+        {
+            name: BOTTOM_BRACKET, 
+            fields: [BB_TYPE, BB_SIZE]
+        },
+        {
+            name: STEERING, 
+            fields: [FORK_TUBE_TYPE, HEADSET_TYPE]
+        },
+        {
+            name: OTHER, 
+            fields: [READ_WHEEL_AXLE_SIZE, BRAKE_TYPE, SEATPOST_CALIPER_DIAMETER, SEATPOST_SIZE]
+        }
     ]
 }
 
@@ -53,7 +71,8 @@ export const FORK_SPEC = {
         {name: BOTTOM_BRACKET, fields: [BB_TYPE, BB_SIZE]},
         {name: STEERING, fields: [FORK_TUBE_TYPE, HEADSET_TYPE]},
         {name: OTHER, fields: [READ_WHEEL_AXLE_SIZE, BRAKE_TYPE, SEATPOST_CALIPER_DIAMETER, SEATPOST_SIZE]}
-    ]
+    ],
+    form: []
 }
 
 export const SPECIALIZATION = [FRAME_SPEC, FORK_SPEC]

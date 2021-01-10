@@ -15,10 +15,10 @@ class CreatePart extends Component {
     const type = this.props.match.params.part;
     return (
       <Body
-        title={`Dodaj ${type}`}
+        title={`Create ${type}`}
         backButtonLink={`/parts/${type}`}
         paragraphs={[
-          <PartForm onSubmit={this.onSubmit} send="Dodaj" type={this.props.match.params.type}/>
+          <PartForm onSubmit={this.onSubmit} send="Create" type={type}/>
         ]}
       />
     );
