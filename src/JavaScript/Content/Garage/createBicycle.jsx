@@ -15,7 +15,7 @@ class AddBicycle extends Component {
   render() {
     return (
       <ArticleBody
-        title="Dodaj rower"
+        title="Create bicycle"
         backButtonLink={`/${getUserName()}/garage`}
         paragraphs={[
           <BicycleForm onSubmit={this.onSubmit} send="Dodaj" />

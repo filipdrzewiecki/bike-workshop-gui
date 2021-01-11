@@ -34,9 +34,9 @@ class Bicycles extends Component {
     return (
       <Page
         isBackButton='false'
-        title="Twoje rowery"
+        title="Your bicycles"
         paragraphs={[
-          <Link to={`/${getUserName()}/garage/new`} ><div className="bicycle"><h2> Dodaj rower + </h2></div></Link>,
+          <Link to={`/${getUserName()}/garage/new`} ><div className="bicycle"><h2> Create new bicycle + </h2></div></Link>,
           <div> {this.renderBicycleList(this.props.bicycles) }</div>,
         ]}
       />

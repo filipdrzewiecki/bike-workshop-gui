@@ -29,10 +29,10 @@ class Navbar extends React.Component {
                     </div>
 
                     <div className="navbarButtons_web" >
-                        <Link to={`/${this.getUserName()}/garage`} > Twoje rowery </Link>
-                        <Link to="/bicycles" > Katalog rowerów </Link>
-                        <Link to="/parts" > Katalog części </Link>
-                        <button onClick={() => this.clearClick()}> Wyloguj </button>
+                        <Link to={`/${this.getUserName()}/garage`} > Your bicycles </Link>
+                        <Link to="/bicycles" > Bicycle catalogue </Link>
+                        <Link to="/parts" > Part catalogue </Link>
+                        <button onClick={() => this.clearClick()}> Logout </button>
                     </div>
                 </div>
             </div>

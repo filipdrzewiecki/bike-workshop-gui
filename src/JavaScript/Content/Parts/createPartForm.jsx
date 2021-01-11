@@ -49,9 +49,7 @@ class CreatePartForm extends Component {
     );
   }
 
-  
-
-  mapPart(part, formSpec) {
+  mapPart(formSpec) {
     return (
       <div>
         <form onSubmit={this.props.handleSubmit(this.onSubmit)}>
@@ -67,16 +65,21 @@ class CreatePartForm extends Component {
 
   render() {
     const spec = partTypes.findSpec(this.props.type);
-    console.log("spec")
-    console.log(spec.form)
-    return this.mapPart(this.props.part, spec.form);
+    return this.mapPart(spec.form);
   }
+
+
+
+
+
+
+  
 }
 
 const validate = (formValues) => {
   const errors = {};
 
-  const required = 'Pole obowiązkowe';
+  const required = 'Required field';
 
   if (!formValues.name) {
     errors.name = required;
