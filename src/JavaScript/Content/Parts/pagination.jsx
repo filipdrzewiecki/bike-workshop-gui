@@ -57,7 +57,6 @@ export default (props) => {
             <PaginationButton index={i + 4} queryParams={queryParams} conditionRender={isNotLastPage(i + 4, totalPages) && i <= 0} />
 
             <PaginationButton index={i + 1} queryParams={queryParams} conditionRender={isNotLastPage(i + 1, totalPages)} overrideDisplay={"\u00bb"}/> {/*RIGHT ARROW*/}
-
         </div>
     )
 }
