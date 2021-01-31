@@ -1,7 +1,7 @@
 import '../../Css/index.css';
 import React from 'react';
 import { connect } from 'react-redux';
-import { fetchPart, addExistingPartToBicycle, getBicycles } from '../apis/api-router';
+import { fetchPart, addExistingPartToBicycle, getBicycles } from '../api/api-router';
 import { Link } from "react-router-dom";
 import Modal from '../../Page/PageElements/modal.jsx'
 import history from '../../../history.jsx'

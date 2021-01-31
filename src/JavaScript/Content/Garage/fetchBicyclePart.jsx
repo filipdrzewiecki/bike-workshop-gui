@@ -1,7 +1,7 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
 import PartDetails from '../Parts/partDetails.jsx';
-import { fetchBicyclePart } from "../apis/api-router.jsx"
+import { fetchBicyclePart } from "../api/api-router.jsx"
 import { connect } from 'react-redux';
 import { getUserName } from '../../Page/Security/authHeader';
 

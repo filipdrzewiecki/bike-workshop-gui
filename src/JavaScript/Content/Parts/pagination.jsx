@@ -1,49 +1,63 @@
-import React, { Component } from 'react';
-import { fetchPartsWithFilters } from "../apis/api-router.jsx"
-import { connect } from 'react-redux';
+import React, { useContext } from 'react';
+import { PartContext } from "../api/PartsProvider.jsx";
 
-class FetchParts extends Component {
-
-    mapParams(page) {
-        var params = this.props.params;
-        if (page) {
-            params.append('page', page);
-        }
-        return params;
-    }
-
-    isNotLastPage(number) {
-        return number <= this.props.totalPages - 1 ? true : false;
-    }
-
-    renderPageNumber() {
-
-        var list = [];
-        var i = this.props.number != null ? this.props.number : 3;
-        if (i >= 1) {list.push(<button key={i-3} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i-1))}>&laquo;</button>) }
-
-        if (i - 1 >= 1) { list.push(<button key={i-2} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i-2))}>{i-1}</button>) } 
-        if (i >= 1) { list.push(<button key={i-1} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i-1))}>{i}</button>) }
-
-        list.push(<button key={i} className="paginationButton active" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i))}>{i+1}</button>)
-        if (this.isNotLastPage(i+1)) {list.push(<button key={i+1} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i+1))}>{i+2}</button>) }
-        if (this.isNotLastPage(i+2)) { list.push(<button key={i+2} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i+2))}>{i+3}</button>) }
-
-        if (i < 2  && this.isNotLastPage(i+3)) { list.push(<button key={i+3} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i+3))}>{i+4}</button>) } 
-        if (i < 1 && this.isNotLastPage(i+4)) { list.push(<button key={i+4} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i+4))}>{i+5}</button>) }
-            
-        if (this.isNotLastPage(i+1)) {list.push(<button key={i+5} className="paginationButton" onClick={() => this.props.fetchPartsWithFilters(this.props.part, this.mapParams(i+1))}>&raquo;</button>)}
-
-        return list;
-    }
-
-    render() {
-        return (
-            <div className="pagination">
-                {this.renderPageNumber()}
-            </div>
-        )
-    }
+function mapParams(page, params) {
+    params.set('page', page);
+    console.log("paramsy w paginacji")
+    console.log(params.toString())
+    return params;
 }
 
-export default connect(null, { fetchPartsWithFilters })(FetchParts);
+function isNotLastPage(number, totalPages) {
+    return number <= totalPages - 1 ? true : false;
+}
+
+const PaginationButton = (props) => {
+    const partContext = useContext(PartContext);
+
+    var index = props.index;
+    var value = props.overrideDisplay ? props.overrideDisplay : index + 1;
+
+    if (props.conditionRender) {
+        if(!props.active) {
+            return <button key={index} className="paginationButton" onClick={() => partContext.dispatch(mapParams(index, props.queryParams))}>{value}</button>
+        } else {
+            return <button key={index} className="paginationButton active" onClick={() => partContext.dispatch(mapParams(index, props.queryParams))}>{index + 1} </button>
+        }
+    }
+    return null;
+}
+
+export default (props) => {
+    const partContext = useContext(PartContext);
+
+    const payload = partContext.parts ? partContext.parts.payload : {};
+
+    var i = payload.number != null ? payload.number : 0;
+    var totalPages = payload.totalPages;
+
+    var queryParams = props.params;
+
+    return (
+        <div className="pagination">
+            <PaginationButton index={i - 1} queryParams={queryParams} conditionRender={i >= 1} overrideDisplay={"\u00ab"} /> {/*LEFT ARROW*/}
+
+            <PaginationButton index={i - 2} queryParams={queryParams} conditionRender={i >= 2} />
+
+            <PaginationButton index={i - 1} queryParams={queryParams} conditionRender={i >= 1} />
+
+            <PaginationButton index={i} queryParams={queryParams} conditionRender={true} active={true}/>
+
+            <PaginationButton index={i + 1} queryParams={queryParams} conditionRender={isNotLastPage(i + 1, totalPages)} />
+
+            <PaginationButton index={i + 2} queryParams={queryParams} conditionRender={isNotLastPage(i + 2, totalPages)} />
+
+            <PaginationButton index={i + 3} queryParams={queryParams} conditionRender={isNotLastPage(i + 3, totalPages) && i <= 1} />
+
+            <PaginationButton index={i + 4} queryParams={queryParams} conditionRender={isNotLastPage(i + 4, totalPages) && i <= 0} />
+
+            <PaginationButton index={i + 1} queryParams={queryParams} conditionRender={isNotLastPage(i + 1, totalPages)} overrideDisplay={"\u00bb"}/> {/*RIGHT ARROW*/}
+
+        </div>
+    )
+}

@@ -1,7 +1,7 @@
 import '../../Css/index.css';
 import React, { Component } from 'react';
 import PartDetails from './partDetails.jsx';
-import { fetchPart } from "../apis/api-router.jsx"
+import { fetchPart } from "../api/api-router.jsx"
 import { connect } from 'react-redux';
 
 class FetchPart extends Component {

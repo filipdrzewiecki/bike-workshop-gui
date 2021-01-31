@@ -1,5 +1,5 @@
 import bikeWorkshop from './bike-workshop-service.jsx'
-import * as API_ACTIONS from '../../actions/apiActions.jsx'
+import * as API_ACTIONS from './apiActions.jsx'
 import history from '../../../history';
 import { authHeader } from '../../Page/Security/authHeader';
 import { getUserName }  from '../../Page/Security/authHeader';
@@ -90,7 +90,7 @@ export const addExistingPartToBicycle = (bicycle, part, partId) =>  async dispat
 
  export const fetchPartsWithFilters = (partType, filters) =>  async dispatch => {
     console.log("filtry")
-     console.log(filters)
+    console.log(filters)
     const response = await bikeWorkshop.get(`parts/${partType}?` + filters, {headers: authHeader()});
     dispatch({type: API_ACTIONS.FETCH_PARTS_WITH_FILTERS, payload: response.data});
 }

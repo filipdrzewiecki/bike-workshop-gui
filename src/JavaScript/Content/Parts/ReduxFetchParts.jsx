@@ -2,7 +2,7 @@ import '../../Css/index.css';
 import './fetchParts.css';
 import React, { Component } from 'react';
 import { Link } from "react-router-dom";
-import { fetchPartsWithFilters } from "../apis/api-router.jsx"
+import { fetchPartsWithFilters } from "../api/api-router.jsx"
 import { connect } from 'react-redux';
 import IconGoBack from '../../../resources/icon/go-back.png';
 import SearchBoxes from './PartSpecializationSearch.jsx';

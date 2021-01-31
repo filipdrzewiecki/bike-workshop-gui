@@ -2,7 +2,7 @@ import '../../Css/index.css';
 import React, { Component } from 'react';
 import Page from '../../Page/PageElements/menu.jsx';
 import { Link } from "react-router-dom";
-import { getBicycles } from "../apis/api-router.jsx"
+import { getBicycles } from "../api/api-router.jsx"
 import { connect } from 'react-redux';
 import { MapType } from './fetchBicycle.jsx';
 import { getUserName } from '../../Page/Security/authHeader';

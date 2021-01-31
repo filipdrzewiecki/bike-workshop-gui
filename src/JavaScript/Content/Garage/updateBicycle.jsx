@@ -2,7 +2,7 @@ import '../../Css/index.css';
 import React, { Component } from 'react';
 import ArticleBody from '../../Page/PageElements/menu.jsx';
 import { connect } from 'react-redux';
-import { getBicycle, updateBicycle } from '../apis/api-router';
+import { getBicycle, updateBicycle } from '../api/api-router';
 import BicycleForm from './add-bicycle-form';
 import { getUserName } from '../../Page/Security/authHeader';
 

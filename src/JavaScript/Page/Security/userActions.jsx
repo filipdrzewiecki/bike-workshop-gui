@@ -1,6 +1,5 @@
 import { LOG_IN, LOG_IN_ERROR, REGISTER, REGISTER_ERROR } from './types';
 import history from '../../../history';
-
 import axios from 'axios';
 
 const auth = axios.create({

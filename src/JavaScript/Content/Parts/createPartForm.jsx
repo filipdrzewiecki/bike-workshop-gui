@@ -67,12 +67,6 @@ class CreatePartForm extends Component {
     const spec = partTypes.findSpec(this.props.type);
     return this.mapPart(spec.form);
   }
-
-
-
-
-
-
   
 }
 

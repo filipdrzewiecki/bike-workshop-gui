@@ -6,9 +6,6 @@ import * as partTypes from './PART_TYPES.jsx';
 import {mapCamelCase} from './stringUtils';
 
 export default class Parts extends Component {
-
-
-
   renderPartTypes() {
     const parts = partTypes.PART_LIST;
     return ([

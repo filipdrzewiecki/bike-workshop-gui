@@ -5,7 +5,7 @@ import React from 'react';
 import { Link } from "react-router-dom";
 
 import { connect } from 'react-redux';
-import { getBicycle, deleteBicycle } from '../apis/api-router';
+import { getBicycle, deleteBicycle } from '../api/api-router';
 
 import Modal from '../../Page/PageElements/modal.jsx'
 import history from '../../../history.jsx'
