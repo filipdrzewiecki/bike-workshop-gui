@@ -46,6 +46,7 @@ export default class PartsTable extends Component {
         const parts = this.props.parts;
         const spec = partTypes.findSpec(type);
 
+
         if (spec) {
             return this.renderContentTable(parts, spec.columns);
         }

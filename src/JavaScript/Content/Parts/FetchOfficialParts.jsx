@@ -29,9 +29,6 @@ function handleInputChange(event, partType) {
     const searchBoxes = partTypes.findSpec(partType).searchBoxes;
 
     for (var box of searchBoxes) {
-        console.log("searchBox")
-        console.log(box)
-
         if (event.target.name === box) {
             Filters.set(box, event.target.value)
         }
