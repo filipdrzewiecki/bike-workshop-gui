@@ -1,5 +1,7 @@
 import React, { useReducer, createContext, useEffect } from "react";
 import { useParams } from 'react-router-dom';
+import { authHeader } from '../../Page/Security/authHeader';
+
 import PartReducer from '../../reducers/partReducer.jsx';
 import bikeWorkshop from './bike-workshop-service.jsx'
 
@@ -18,7 +20,8 @@ const PartProvider = (props) => {
   }
 
   const dispatchParts = (filters) => {
-    bikeWorkshop.get(`/parts/${partType}?` + filters).then((response) => {
+    bikeWorkshop.get(`/parts/${partType}?` + filters, {headers: authHeader()})
+    .then((response) => {
       dispatch(fetchParts(response));
     });
   };

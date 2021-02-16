@@ -52,10 +52,7 @@ const CHAINRING = "chainring";
 const CHAIN = "chain";
 const CASSETTE = "cassette";
 const BOTTOM_BRACKET = "bottomBracket";
-const SHIFTER_LEFT = "shifterLeft";
-const SHIFTER_RIGHT = "shifterRight";
-const ROAD_SHIFTER_LEFT = "roadShifterLeft";
-const ROAD_SHIFTER_RIGHT = "roadShifterRight";
+const SHIFTER = "shifter";
 const GRIPS = "grips";
 const HANDLEBAR = "handlebar";
 const HEADSET = "headset";
@@ -95,8 +92,8 @@ export const FRAME_SPEC = {
 
 export const FORK_SPEC = {
     name: FORK,
-    searchBoxes: [BRAND, MODEL, YEAR],
-    columns: [BRAND, MODEL, YEAR, TRAVEL, SUSPENSION_TYPE, AXLE_SIZE, WEIGHT],
+    searchBoxes: [BRAND, MODEL, SERIES, YEAR],
+    columns: [BRAND, MODEL, SERIES, YEAR, TRAVEL, SUSPENSION_TYPE, AXLE_SIZE, WEIGHT],
     sections: [
         {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
     ],
@@ -113,13 +110,235 @@ export const REAR_DERAILLEUR_SPEC = {
     form: []
 }
 
-export const SPECIALIZATION = [FRAME_SPEC, FORK_SPEC, REAR_DERAILLEUR_SPEC]
+export const FRONT_DERAILLEUR_SPEC = {
+    name: FRONT_DERAILLEUR,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const CRANK_SPEC = {
+    name: CRANK,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const DAMPER_SPEC = {
+    name: DAMPER,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const DISC_SPEC = {
+    name: DISC,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const HUB_SPEC = {
+    name: HUB,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const RIM_SPEC = {
+    name: RIM,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const TYRE_SPEC = {
+    name: TYRE,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const WHEEL_SPEC = {
+    name: WHEEL,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const SADDLE_SPEC = {
+    name: SADDLE,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const SEATPOST_SPEC = {
+    name: SEATPOST,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const SEATPOST_CLAMP_SPEC = {
+    name: SEATPOST_CLAMP,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const CHAINRING_SPEC = {
+    name: CHAINRING,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const CHAIN_SPEC = {
+    name: CHAIN,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const CASSETTE_SPEC = {
+    name: CASSETTE,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const BOTTOM_BRACKET_SPEC = {
+    name: BOTTOM_BRACKET,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const SHIFTER_SPEC = {
+    name: SHIFTER,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const GRIPS_SPEC = {
+    name: GRIPS,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const HANDLEBAR_SPEC = {
+    name: HANDLEBAR,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const HEADSET_SPEC = {
+    name: HEADSET,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const STEM_SPEC = {
+    name: STEM,
+    searchBoxes: [BRAND, MODEL, SERIES],
+    columns: [BRAND, MODEL, SERIES, WEIGHT],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
+export const SPECIALIZATION = [
+    FRAME_SPEC, 
+    FORK_SPEC, 
+    FRONT_DERAILLEUR_SPEC,
+    REAR_DERAILLEUR_SPEC,
+    CRANK_SPEC,
+    DAMPER_SPEC,
+    DISC_SPEC,
+    HUB_SPEC,
+    RIM_SPEC,
+    TYRE_SPEC,
+    WHEEL_SPEC,
+    SADDLE_SPEC,
+    SEATPOST_SPEC,
+    SEATPOST_CLAMP_SPEC,
+    CHAINRING,
+    CHAIN_SPEC,
+    CASSETTE_SPEC,
+    BOTTOM_BRACKET_SPEC,
+    SHIFTER_SPEC,
+    GRIPS_SPEC,
+    HANDLEBAR_SPEC,
+    HEADSET_SPEC
+]
 
 export const PART_LIST = [
     FRAME, FORK, REAR_DERAILLEUR, FRONT_DERAILLEUR, CRANK, DAMPER, 
     DISC, HUB, RIM, TYRE, WHEEL, SADDLE, SEATPOST, SEATPOST_CLAMP, CHAINRING, CHAIN,
-    CASSETTE, BOTTOM_BRACKET, SHIFTER_LEFT, SHIFTER_RIGHT, ROAD_SHIFTER_LEFT, 
-    ROAD_SHIFTER_RIGHT, GRIPS, HANDLEBAR, HEADSET, STEM
+    CASSETTE, BOTTOM_BRACKET, SHIFTER, GRIPS, HANDLEBAR, HEADSET, STEM
 ]
 
 export function findSpec(specName) {
