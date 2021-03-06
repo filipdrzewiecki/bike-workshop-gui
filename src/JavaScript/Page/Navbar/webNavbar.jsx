@@ -1,8 +1,7 @@
 import React from 'react';
 import CompanyLogo from '../../../resources/companyLogo.png';
 import './webNavbar.css';
-import { Link } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
 
 
 class Navbar extends React.Component {
@@ -19,6 +18,9 @@ class Navbar extends React.Component {
     }
 
     render() {
+        console.log("navbar stan")
+
+        console.log(this.state)
 
         return (
             <div className="navbar-container" >
@@ -29,19 +31,15 @@ class Navbar extends React.Component {
                     </div>
 
                     <div className="navbarButtons_web" >
-                        <Link to={`/${this.getUserName()}/garage`} > Your bicycles </Link>
-                        <Link to="/bicycles" > Bicycle catalogue </Link>
-                        <Link to="/parts" > Part catalogue </Link>
-                        <button onClick={() => this.clearClick()}> Logout </button>
+                        <NavLink className="navbarButton_web" activeClassName='activeBlue' exact to={`/${this.getUserName()}/garage`} >Your bicycles </NavLink>
+                        <NavLink className="navbarButton_web" activeClassName='activeRed'to="/bicycles" > Bicycle catalogue </NavLink>
+                        <NavLink className="navbarButton_web" activeClassName='activeGreen' to="/parts" > Part catalogue </NavLink>
+                        <NavLink className="navbarButton_web" to="/logout"  onClick={() => this.clearClick()}> Logout </NavLink>
                     </div>
                 </div>
             </div>
         );
     }
-
-
 }
-
-
 
 export default Navbar;

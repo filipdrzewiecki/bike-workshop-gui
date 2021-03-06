@@ -3,7 +3,6 @@ import './fetchParts.css';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import IconGoBack from '../../../resources/icon/go-back.png';
 import SearchBoxes from './PartSpecializationSearch.jsx';
 import PartsTable from './PartSpecializationTable.jsx';
 import { capitalizeFirstLetter } from '../../Page/PageElements/Utils.jsx'
@@ -11,6 +10,7 @@ import Pagination from './Pagination.jsx'
 import PartProvider from '../api/PartsProvider.jsx';
 import { PartContext } from "../api/PartsProvider.jsx";
 import * as partTypes from './PART_TYPES.jsx';
+import { Fragment } from 'react';
 
 const Filters = new Map();
 
@@ -59,42 +59,37 @@ const FetchParts = () => {
     Filters.set('page', currentPage)
 
     return (
-        <div className="mainPage">
-            <div className="page-top">
-                <div className="page-title-container">
-                    <div className="page-title">
-                        <div className="primary">{capitalizeFirstLetter(partType)}</div>
-                    </div>
-                    <div className="go-back-button">
-                        <Link to={`/parts`}><img src={IconGoBack} alt="GoBack" ></img></Link>
-                    </div>
-                </div>
-            </div>
-
-            <div className="page-mid">
+        <Fragment>
+            <div className="page-search">
                 <div className="searchSection">
                     <div className="searchBoxes">
+                    <button onClick={() => partContext.dispatch(getQueryParams(Filters))} className="search-button">SEARCH</button>
                         <SearchBoxes type={partType} handleInputChange={(e) => handleInputChange(e, partType)} />
                     </div>
-                    <div className="search-button-container">
-                        <button onClick={() => partContext.dispatch(getQueryParams(Filters))} className="search-button">SEARCH</button>
+                </div>
+            </div>
+
+            <div className="mainPage">
+                <div className="page-top">
+                    <div className="page-title-container">
+                        <div className="page-title">
+                            <div className="primary">{capitalizeFirstLetter(partType)}</div>
+                        </div>
                     </div>
+                </div>
 
+                <div className="page-bottom">
+                    <div>
+                        <div className="yelloLink"><Link to={`/parts/${partType}/new`}> NEW + </Link></div>
+                        <RenderList payload={payload} />
+                    </div>
+                </div>
+                <div className="page-pagination">
+                    <Pagination params={getQueryParams(Filters)} />
                 </div>
             </div>
-
-            <div className="page-bottom">
-                <div>
-                    <div className="yelloLink"><Link to={`/parts/${partType}/new`}> NEW + </Link></div>
-                    <RenderList payload={payload} />
-                </div>
-            </div>
-            <div className="page-pagination">
-                <Pagination params={getQueryParams(Filters)} />
-            </div>
-        </div>
+        </Fragment>
     );
 }
 
-export default () => {return <PartProvider><FetchParts/></PartProvider>}
-
+export default () => { return <PartProvider><FetchParts /></PartProvider> }

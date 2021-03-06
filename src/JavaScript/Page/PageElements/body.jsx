@@ -1,4 +1,5 @@
-import './body.css';
+import '../../Css/index.css'
+import './body.css'
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 //Garage

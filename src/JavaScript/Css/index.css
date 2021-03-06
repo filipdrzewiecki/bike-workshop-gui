@@ -3,6 +3,10 @@ body {
     margin: 0;
 }
 
+.mainPage {
+    width: 80%;
+}
+
 code {
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
@@ -283,53 +287,6 @@ a {
 
 .icon:hover {
     filter: opacity(100%);
-}
-
-.page-top {
-    display: flex;
-    box-sizing: border-box;
-    padding: 10px 30px 10px 30px;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.page-mid {
-    box-sizing: border-box;
-    padding: 10px 30px 10px 30px;
-    display: block;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    margin-bottom: 10px;
-    width: 100%;
-}
-
-.page-bottom {
-    box-sizing: border-box;
-    display: block;
-    width: 90%;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    width: 100%;
-    min-height: 100vh;
-    padding: 10px 30px 10px 30px;
-}
-
-.page-pagination {
-    justify-content: center;
-    box-sizing: border-box;
-    display: flex;
-    width: 90%;
-    background-color: white;
-    border: 1px solid rgba(0, 0, 0, 0.25);
-    border-top: 0px;
-    width: 100%;
-    padding: 10px 30px 10px 30px;
-}
-
-.mainPage {
-    width: 100%;
 }
 
 .add-part-button {
