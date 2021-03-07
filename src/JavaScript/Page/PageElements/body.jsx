@@ -3,16 +3,16 @@ import './body.css'
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
 //Garage
-import FetchBicycles from '../../Content/Garage/fetchBicycles.jsx';
-import CreateBicycle from '../../Content/Garage/createBicycle.jsx';
-import FetchBicycle from '../../Content/Garage/fetchBicycle.jsx';
-import UpdateBicycle from '../../Content/Garage/updateBicycle.jsx';
-import DeleteBicycle from '../../Content/Garage/deleteBicycle.jsx';
+import PersonalBicycles from '../../Content/Bicycles/Personal/BicycleList.jsx';
+import CreateBicycle from '../../Content/Bicycles/createBicycle.jsx';
+import FetchBicycle from '../../Content/Bicycles/fetchBicycle.jsx';
+import UpdateBicycle from '../../Content/Bicycles/updateBicycle.jsx';
+import DeleteBicycle from '../../Content/Bicycles/deleteBicycle.jsx';
 import LoginPage from '../Security/LoginPage.jsx'
 
-import BicyclePart from '../../Content/Garage/fetchBicyclePart.jsx';
-import AddPartToBike from '../../Content/Garage/addPartToBicycle.jsx';
-import DeleteBicyclePart from '../../Content/Garage/deleteBicyclePart.jsx';
+import BicyclePart from '../../Content/Bicycles/fetchBicyclePart.jsx';
+import AddPartToBike from '../../Content/Bicycles/addPartToBicycle.jsx';
+import DeleteBicyclePart from '../../Content/Bicycles/deleteBicyclePart.jsx';
 
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
@@ -32,15 +32,15 @@ const PageBody = () => {
                 <Route path="/login" exact component={LoginPage} />
                 
                 {/* GARAGE */}
-                <Route path="/" exact component={FetchBicycles} />
-                <Route path="/:user/garage" exact component={FetchBicycles} />
-                <Route path="/:user/garage/new" exact component={CreateBicycle} />
-                <Route path="/:user/garage/:bike" exact component={FetchBicycle} />
-                <Route path="/:user/garage/:bike/edit" exact component={UpdateBicycle} />
-                <Route path="/:user/garage/:bike/delete" exact component={DeleteBicycle} />
-                <Route path="/:user/garage/:bike/:part" exact component={BicyclePart} />
-                <Route path="/:user/garage/:bike/:part/new" exact component={AddPartToBike} />
-                <Route path="/:user/garage/:bike/:part/delete" exact component={DeleteBicyclePart} />
+                <Route path="/" exact component={PersonalBicycles} />
+                <Route path="/:user/bicycles" exact component={PersonalBicycles} />
+                <Route path="/:user/bicycles/new" exact component={CreateBicycle} />
+                <Route path="/:user/bicycles/:bike" exact component={FetchBicycle} />
+                <Route path="/:user/bicycles/:bike/edit" exact component={UpdateBicycle} />
+                <Route path="/:user/bicycles/:bike/delete" exact component={DeleteBicycle} />
+                <Route path="/:user/bicycles/:bike/:part" exact component={BicyclePart} />
+                <Route path="/:user/bicycles/:bike/:part/new" exact component={AddPartToBike} />
+                <Route path="/:user/bicycles/:bike/:part/delete" exact component={DeleteBicyclePart} />
 
                 {/* BICYCLES */}
                 <Route path="/bicycles" exact component={Bicycles} />

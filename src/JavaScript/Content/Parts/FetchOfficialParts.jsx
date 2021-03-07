@@ -69,7 +69,7 @@ const FetchParts = () => {
                 </div>
             </div>
 
-            <div className="mainPage">
+            <div className="mainPage_88">
                 <div className="page-top">
                     <div className="page-title-container">
                         <div className="page-title">

@@ -24,7 +24,7 @@ class Bicycle extends Component {
   renderBicycle() {
     return (
       <BicycleDetails
-        backButtonLink={`/${getUserName()}/garage`}
+        backButtonLink={`/${getUserName()}/bicycles`}
         title={this.props.bicycle.name}
         bicycle={this.props.bicycle}
         secondaryTitle={<div>{this.props.bicycle.brand} {this.props.bicycle.model} {this.props.bicycle.year}</div>}

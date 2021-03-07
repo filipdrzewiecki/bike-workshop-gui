@@ -20,8 +20,8 @@ export default class BicycleDetails extends React.Component {
                 <div className="dropbtn"><img src={DropdownIcon} alt="delete" ></img></div>
                 <div className="dropdown-content">
                     <div><img src={DropdownIcon} alt="dots" ></img></div>
-                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
-                    <li><Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
+                    <li><Link to={`/${getUserName()}/bicycles/${this.props.bicycle.name}/edit`}><img src={EditIcon} alt="edit" ></img></Link></li>
+                    <li><Link to={`/${getUserName()}/bicycles/${this.props.bicycle.name}/delete`}><img src={DeleteIcon} alt="delete" ></img></Link></li>
                 </div>
             </div>
         );
@@ -53,11 +53,11 @@ export default class BicycleDetails extends React.Component {
 
     renderPart(part, partName) {
         if (part) {
-            return <Link to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}`}> {part.brand} </Link>;
+            return <Link to={`/${getUserName()}/bicycles/${this.props.bicycle.name}/${partName}`}> {part.brand} </Link>;
         }
         return (
             <div className="link">
-            <Link  to={`/${getUserName()}/garage/${this.props.bicycle.name}/${partName}/new`}>stwórz </Link> | <Link  to={`/parts/${partName}`} >dodaj istniejący</Link>
+            <Link  to={`/${getUserName()}/bicycles/${this.props.bicycle.name}/${partName}/new`}>stwórz </Link> | <Link  to={`/parts/${partName}`} >dodaj istniejący</Link>
             </div>
         );
     }

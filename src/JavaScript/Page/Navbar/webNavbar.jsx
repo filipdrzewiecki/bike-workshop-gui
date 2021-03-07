@@ -42,7 +42,7 @@ class Navbar extends React.Component {
 
                 <div className="navbar_web_bottom" >
                     <div className="navbarButtons_web_bottom" >
-                        <NavLink className="navbarButton_web_bottom" activeClassName='active' to={`/${this.getUserName()}/garage`} >Your bicycles </NavLink>
+                        <NavLink className="navbarButton_web_bottom" activeClassName='active' to={`/${this.getUserName()}/bicycles`} >Your bicycles </NavLink>
                         <NavLink className="navbarButton_web_bottom" activeClassName='active' to={`/${this.getUserName()}/parts`} >Your Parts </NavLink>
                         <NavLink className="navbarButton_web_bottom" activeClassName='active'to="/bicycles" > Bicycle catalogue </NavLink>
                         <NavLink className="navbarButton_web_bottom" activeClassName='active' to="/parts" > Part catalogue </NavLink>

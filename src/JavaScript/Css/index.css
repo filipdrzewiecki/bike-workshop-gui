@@ -4,6 +4,10 @@ body {
 }
 
 .mainPage {
+    width: 100%;
+}
+
+.mainPage_80 {
     width: 80%;
 }
 
