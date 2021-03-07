@@ -1,9 +1,7 @@
 .navbar-container {
     background-color: #f5f5f5;
-    color: black;
     width: 100%;
-    height: 56px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.25);
+    height: 70px;
 }
 
 .navbar-follow {
@@ -13,29 +11,32 @@
     z-index: 9999;
 }
 
-.navbar_web {
+.navbar_web_top {
+    background-color: #ffffff;
+    color: steelblue;
     width: 100%;
-    height: 100%;
+    height: 65%;
     max-width: 1366px;
     margin: 0 auto;
     display: flex;
     align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 
-.navbar_web a,
-.navbar_web button {
-    color: black;
-    font-family: Arial, Helvetica, sans-serif;
-    text-transform: uppercase;
-    text-decoration: none;
-    margin: 15px;
-    border: 1px;
+.navbar_web_bottom {
     background-color: #f5f5f5;
-    cursor: pointer;
+    color: black;
+    width: 100%;
+    height: 35%;
+    max-width: 1366px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.10);
 }
 
-.navbarButtons_web {
-    width: 80%;
+.navbarButtons_web_top {
+    width: 40%;
     margin: 0;
     display: flex;
     justify-content: flex-end;
@@ -44,42 +45,65 @@
     height: 100%;
 }
 
+.navbarButton_web_top {
+    height: 100%;
+    width: 20%;
+    text-align: center;
+    display: block;
+    padding-top: 10px;
+}
 
-/* .navbarButtons_web a:hover {
-    text-decoration: none;
-    transition-duration: 0.4s;
-    border-bottom: 3px solid goldenrod;
-} */
+.navbarButton_web_top:hover {
+    color: rgb(97, 171, 231);
+}
 
-.navbarButtons_web a {
-    padding-top: 18px;
+.navbarButtons_web_top a.active {
+    color: rgb(97, 171, 231);
+}
+
+.navbarButtons_web_bottom {
+    width: 100%;
+    margin: 0;
+    display: flex;
+    justify-content: space-around;
     height: 100%;
 }
 
-.navbarButton_web:hover {
-    background-color: #e9e9e9;
+.navbarButton_web_bottom {
+    height: 100%;
+    width: 25%;
+    text-align: center;
 }
 
-.navbarButtons_web a.activeBlue {
-    border-bottom: 5px solid rgb(0, 74, 117);
+.navbarButton_web_bottom:hover {
+    background-color: #d6d6d6;
 }
 
-.navbarButtons_web a.activeRed {
-    border-bottom: 5px solid rgb(0, 125, 197);
-}
-
-.navbarButtons_web a.activeGreen {
-    border-bottom: 5px solid rgb(0, 162, 255);
+.navbarButtons_web_bottom a.active {
+    border-bottom: 3px solid steelblue;
 }
 
 .navbarLogo_web {
-    height: 80%;
+    width: 25%;
+    height: 100%;
     display: flex;
     align-items: center;
 }
 
 .navbarLogo_web img {
-    height: 40px;
+    height: 30px;
     margin: auto;
+    margin-left: 20px;
     filter: grayscale(1) invert(1);
+}
+
+.navbar_top_search {
+    width: 35%;
+    height: 100%;
+    align-items: center;
+    display: flex;
+}
+
+.navbar_top_search input {
+    width: 100%;
 }

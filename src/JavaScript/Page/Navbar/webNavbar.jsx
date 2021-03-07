@@ -24,19 +24,31 @@ class Navbar extends React.Component {
 
         return (
             <div className="navbar-container" >
-                <div className="navbar_web" >
 
+                <div className="navbar_web_top" >
                     <div className="navbarLogo_web" >
                         <Link to="/"><img src={CompanyLogo} alt="companyLogo" ></img></Link>
                     </div>
 
-                    <div className="navbarButtons_web" >
-                        <NavLink className="navbarButton_web" activeClassName='activeBlue' exact to={`/${this.getUserName()}/garage`} >Your bicycles </NavLink>
-                        <NavLink className="navbarButton_web" activeClassName='activeRed'to="/bicycles" > Bicycle catalogue </NavLink>
-                        <NavLink className="navbarButton_web" activeClassName='activeGreen' to="/parts" > Part catalogue </NavLink>
-                        <NavLink className="navbarButton_web" to="/logout"  onClick={() => this.clearClick()}> Logout </NavLink>
+                    <div className="navbar_top_search">
+                        <input></input>
+                    </div>
+
+                    <div className="navbarButtons_web_top" >
+                        <NavLink className="navbarButton_web_top" activeClassName='active' to="/profile"  > Profile </NavLink>
+                        <NavLink className="navbarButton_web_top" activeClassName='active' to="/logout"  onClick={() => this.clearClick()}> Logout </NavLink>
                     </div>
                 </div>
+
+                <div className="navbar_web_bottom" >
+                    <div className="navbarButtons_web_bottom" >
+                        <NavLink className="navbarButton_web_bottom" activeClassName='active' to={`/${this.getUserName()}/garage`} >Your bicycles </NavLink>
+                        <NavLink className="navbarButton_web_bottom" activeClassName='active' to={`/${this.getUserName()}/parts`} >Your Parts </NavLink>
+                        <NavLink className="navbarButton_web_bottom" activeClassName='active'to="/bicycles" > Bicycle catalogue </NavLink>
+                        <NavLink className="navbarButton_web_bottom" activeClassName='active' to="/parts" > Part catalogue </NavLink>
+                    </div>
+                </div>
+
             </div>
         );
     }
