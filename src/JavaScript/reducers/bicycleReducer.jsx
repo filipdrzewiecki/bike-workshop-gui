@@ -4,7 +4,7 @@ import { CREATE_BICYCLE, GET_BICYCLE, GET_BICYCLES, UPDATE_BICYCLE, DELETE_BICYC
 export default (state={}, action) => {
     switch(action.type) {
         case GET_BICYCLES:
-            return { ...state, ..._.mapKeys(action.payload, 'id')};
+            return { ...state, payload: action.payload};
         case GET_BICYCLE:
             return { ...state, [action.payload.id]: action.payload};
         case CREATE_BICYCLE:

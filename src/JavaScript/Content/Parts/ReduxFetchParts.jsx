@@ -9,8 +9,9 @@ import SearchBoxes from './PartSpecializationSearch.jsx';
 import { renderParams } from './PartSpecializationSearch';
 import PartsTable from './PartSpecializationTable.jsx';
 import { capitalizeFirstLetter } from '../../Page/PageElements/Utils.jsx'
-import Pagination from './pagination.jsx'
+import Pagination from './ReduxPagination.jsx'
 
+//INFO: depracted, replaced with hooks and context
 class FetchParts extends Component {
 
     constructor(props) {

@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { fetchPartsWithFilters } from "../api/api-router.jsx"
 import { connect } from 'react-redux';
 
+//INFO: depracted, replaced with hooks and context
 class FetchParts extends Component {
 
     mapParams(page) {

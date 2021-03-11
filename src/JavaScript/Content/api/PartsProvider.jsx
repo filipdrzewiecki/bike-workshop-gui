@@ -1,7 +1,7 @@
 import React, { useReducer, createContext, useEffect } from "react";
 import { useParams } from 'react-router-dom';
 import { authHeader } from '../../Page/Security/authHeader';
-
+import * as API_ACTIONS from './apiActions.jsx'
 import PartReducer from '../../reducers/partReducer.jsx';
 import bikeWorkshop from './bike-workshop-service.jsx'
 
@@ -14,7 +14,7 @@ const PartProvider = (props) => {
 
   function fetchParts(response) {
     return {
-      type: "FETCH_PARTS_WITH_FILTERS",
+      type: API_ACTIONS.FETCH_PARTS_WITH_FILTERS,
       payload: response.data
     }
   }
