@@ -17,8 +17,8 @@ import DeleteBicyclePart from '../../Content/Bicycles/deleteBicyclePart.jsx';
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
 //Parts
-import Parts from '../../Content/Parts/parts.jsx';
-import FetchOfficialParts from '../../Content/Parts/FetchOfficialParts.jsx';
+import OfficialPartsList from '../../Content/Parts/parts.jsx';
+import OfficialParts from '../../Content/Parts/Official/PartsList.jsx';
 import FetchPart from '../../Content/Parts/fetchPart.jsx';
 import CreatePart from '../../Content/Parts/createPart.jsx';
 import AddExistingPartToBicycle from '../../Content/Parts/addExistingPartToBicycle.jsx';
@@ -46,8 +46,8 @@ const PageBody = () => {
                 <Route path="/bicycles" exact component={Bicycles} />
 
                 {/* PARTS */}
-                <Route path="/parts" exact component={Parts} />
-                <Route path="/parts/:part" exact component={FetchOfficialParts} />
+                <Route path="/parts" exact component={OfficialPartsList} />
+                <Route path="/parts/:part" exact component={OfficialParts} />
                 <Route path="/parts/:part/new" exact component={CreatePart} />
                 <Route path="/parts/:part/:id" exact component={FetchPart} />
                 <Route path="/parts/:part/:partId/add" exact component={AddExistingPartToBicycle} />

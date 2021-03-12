@@ -6,7 +6,7 @@ import DeleteIcon from "../../../resources/icon/page/delete.svg";
 import EditIcon from "../../../resources/icon/page/edit.svg";
 import DropdownIcon from "../../../resources/icon/page/dots.svg";
 import { getUserName } from '../../Page/Security/authHeader';
-import { MapType } from './Personal/Bicycle';
+import { mapBicycleEnum } from '../../Page/PageElements/Utils.jsx'
 
 export default class BicycleDetails extends React.Component {
 
@@ -42,7 +42,7 @@ export default class BicycleDetails extends React.Component {
                 </div>
                 <div className="secondary">{this.props.secondaryTitle}</div>
                 <div className="contentField">
-                    <MapType type={this.props.bicycle.type} /> {this.props.bicycle.predefinedWeight} kg
+                    {mapBicycleEnum(this.props.bicycle.type)} {this.props.bicycle.predefinedWeight} kg
                 </div>
             </div>
         );

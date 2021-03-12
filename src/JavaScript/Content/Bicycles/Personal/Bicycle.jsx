@@ -1,28 +1,17 @@
 import '../../../Css/index.css';
 import React, { useContext } from 'react';
-import BicycleDetails from '../bicycleDetails.jsx';
+import BicycleDetails from '../BicycleDetails.jsx';
 import PersonalBicycleProvider from '../../api/PersonalBicycleProvider.jsx';
 import { PersonalBicycleContext } from "../../api/PersonalBicycleProvider.jsx";
-
-export function MapType(props) {
-  if (props.type === "MOUNTAIN_BIKE") {
-    return "Mountain bike";
-  }
-  if (props.type === "ROAD_BIKE") {
-    return "Road bike";
-  }
-  return "Nieznany";
-}
+import { Loading } from '../../../Page/PageElements/Utils.jsx'
 
 const Bicycle = () => {
   const context = useContext(PersonalBicycleContext);
-  const bicycle = context.bicycle ? context.bicycle.payload : {};
-  console.log("rower")
-  console.log(context)
 
-  if (!bicycle) {
-    return <div className="fetchBicycle">Loading...</div>
-  }
+  if (!context.bicycle) { return <Loading /> }
+
+  const bicycle = context.bicycle.payload;
+
   return (
     <BicycleDetails
       title={bicycle.name}

@@ -3,11 +3,11 @@ import './BicycleList.css'
 import React, { useContext } from 'react';
 import Page from '../../../Page/PageElements/menu.jsx';
 import { Link } from "react-router-dom";
-import { MapType } from './Bicycle.jsx';
 import { getUserName } from '../../../Page/Security/authHeader';
 import BicyclePlaceholderIcon from "../../../../resources/icon/bicycle-icon.png";
 import PersonalBicyclesProvider from '../../api/PersonalBicyclesProvider.jsx';
 import { PersonalBicyclesContext } from "../../api/PersonalBicyclesProvider.jsx";
+import { mapBicycleEnum, Loading } from '../../../Page/PageElements/Utils.jsx'
 
 const CreateNew = () => {
   return (
@@ -25,7 +25,6 @@ const CreateNew = () => {
 }
 
 const Bicycles = (props) => {
-  
   return (
     <div className="card_container">
       <CreateNew />
@@ -38,7 +37,7 @@ const Bicycles = (props) => {
             <div className="bicycle_data">
               <h2>{bike.name}</h2>
               <div>{bike.brand} {bike.model}</div>
-              <div><MapType type={bike.type} />  {bike.weight} kg </div>
+              <div>{mapBicycleEnum(bike.type)} {bike.weight} kg </div>
             </div>
           </Link>
         </div>
@@ -49,7 +48,10 @@ const Bicycles = (props) => {
 
 const PersonalBicyclesList = () => {
   const context = useContext(PersonalBicyclesContext);
-  const bicycles = context.bicycles ? context.bicycles.payload : [];
+  if (!context.bicycles) {
+    return <Loading />
+  }
+  const bicycles = context.bicycles.payload;
   return (
     <Page
       isBackButton='false'

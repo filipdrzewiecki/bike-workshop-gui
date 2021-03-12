@@ -22,7 +22,7 @@ const PaginationButton = (props) => {
         if(!props.active) {
             return <button key={index} className="paginationButton" onClick={() => partContext.dispatch(mapParams(index, props.queryParams))}>{value}</button>
         } else {
-            return <button key={index} className="paginationButton active" onClick={() => partContext.dispatch(mapParams(index, props.queryParams))}>{index + 1} </button>
+            return <button key={index} className="paginationButton activePagination" onClick={() => partContext.dispatch(mapParams(index, props.queryParams))}>{index + 1} </button>
         }
     }
     return null;

@@ -1,15 +1,15 @@
-import '../../Css/index.css';
-import './fetchParts.css';
+import '../../../Css/index.css';
+import './partsList.css';
 import React, { useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { Link } from "react-router-dom";
-import SearchBoxes from './PartSpecializationSearch.jsx';
-import PartsTable from './PartSpecializationTable.jsx';
-import { capitalizeFirstLetter } from '../../Page/PageElements/Utils.jsx'
-import Pagination from './Pagination.jsx'
-import PartProvider from '../api/PartsProvider.jsx';
-import { PartContext } from "../api/PartsProvider.jsx";
-import * as partTypes from './PART_TYPES.jsx';
+import SearchBoxes from '../PartSpecializationSearch.jsx';
+import PartsTable from '../PartSpecializationTable.jsx';
+import { capitalizeFirstLetter, Loading } from '../../../Page/PageElements/Utils.jsx'
+import Pagination from '../Pagination.jsx'
+import PartProvider from '../../api/PartsProvider.jsx';
+import { PartContext } from "../../api/PartsProvider.jsx";
+import * as partTypes from '../PART_TYPES.jsx';
 import { Fragment } from 'react';
 
 const Filters = new Map();
@@ -49,12 +49,14 @@ function getQueryParams(filters) {
 
 const FetchParts = () => {
     const partContext = useContext(PartContext);
-
     const partType = useParams().part;
 
-    const currentPage = partContext.parts ? partContext.parts.payload.number : 0;
+    if (!partContext.parts) {
+        return <Loading/>
+    }
 
-    const payload = partContext.parts ? partContext.parts.payload : {};
+    const payload = partContext.parts.payload;
+    const currentPage = partContext.parts.payload.number;
 
     Filters.set('page', currentPage)
 
@@ -63,7 +65,7 @@ const FetchParts = () => {
             <div className="page-search">
                 <div className="searchSection">
                     <div className="searchBoxes">
-                    <button onClick={() => partContext.dispatch(getQueryParams(Filters))} className="search-button">SEARCH</button>
+                        <button onClick={() => partContext.dispatch(getQueryParams(Filters))} className="search-button">SEARCH</button>
                         <SearchBoxes type={partType} handleInputChange={(e) => handleInputChange(e, partType)} />
                     </div>
                 </div>
