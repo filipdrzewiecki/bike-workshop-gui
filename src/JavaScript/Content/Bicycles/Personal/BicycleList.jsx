@@ -3,7 +3,7 @@ import './BicycleList.css'
 import React, { useContext } from 'react';
 import Page from '../../../Page/PageElements/menu.jsx';
 import { Link } from "react-router-dom";
-import { MapType } from '../fetchBicycle.jsx';
+import { MapType } from './Bicycle.jsx';
 import { getUserName } from '../../../Page/Security/authHeader';
 import BicyclePlaceholderIcon from "../../../../resources/icon/bicycle-icon.png";
 import PersonalBicyclesProvider from '../../api/PersonalBicyclesProvider.jsx';
@@ -14,7 +14,7 @@ const CreateNew = () => {
     <div className="bicycle_card" >
       <Link to={`/${getUserName()}/bicycles/new`}>
         <div className="bicycle_photo_container">
-          <img src={`http://localhost:8080/image/1`} alt="BicyclePlaceholderIcon"></img>
+          <img src={BicyclePlaceholderIcon} alt="BicyclePlaceholderIcon"></img>
         </div>
         <div className="bicycle_data">
           <h2>CREATE NEW +</h2>
@@ -33,7 +33,7 @@ const Bicycles = (props) => {
         <div className="bicycle_card" key={bike.id}>
           <Link to={`/${getUserName()}/bicycles/${bike.name}`} key={bike.id}>
             <div className="bicycle_photo_container">
-              <img src={BicyclePlaceholderIcon} alt="BicyclePlaceholderIcon"></img>
+              <img src={`http://localhost:8080/image/2`} alt="BicyclePlaceholderIcon"></img>
             </div>
             <div className="bicycle_data">
               <h2>{bike.name}</h2>
@@ -49,13 +49,7 @@ const Bicycles = (props) => {
 
 const PersonalBicyclesList = () => {
   const context = useContext(PersonalBicyclesContext);
-
-
-
   const bicycles = context.bicycles ? context.bicycles.payload : [];
-  console.log("rowerki")
-  console.log(bicycles)
-
   return (
     <Page
       isBackButton='false'

@@ -6,7 +6,7 @@ export default (state={}, action) => {
         case GET_BICYCLES:
             return { ...state, payload: action.payload};
         case GET_BICYCLE:
-            return { ...state, [action.payload.id]: action.payload};
+            return { ...state, payload: action.payload};
         case CREATE_BICYCLE:
             return { ...state, [action.payload.id]: action.payload};
         case UPDATE_BICYCLE:

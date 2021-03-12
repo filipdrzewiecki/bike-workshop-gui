@@ -2,10 +2,10 @@ import '../../Css/index.css'
 import './body.css'
 import React from 'react';
 import { Route, Switch } from "react-router-dom";
-//Garage
+//Personal bicycles
 import PersonalBicycles from '../../Content/Bicycles/Personal/BicycleList.jsx';
 import CreateBicycle from '../../Content/Bicycles/createBicycle.jsx';
-import FetchBicycle from '../../Content/Bicycles/fetchBicycle.jsx';
+import PersonalBicycle from '../../Content/Bicycles/Personal/Bicycle.jsx';
 import UpdateBicycle from '../../Content/Bicycles/updateBicycle.jsx';
 import DeleteBicycle from '../../Content/Bicycles/deleteBicycle.jsx';
 import LoginPage from '../Security/LoginPage.jsx'
@@ -35,7 +35,7 @@ const PageBody = () => {
                 <Route path="/" exact component={PersonalBicycles} />
                 <Route path="/:user/bicycles" exact component={PersonalBicycles} />
                 <Route path="/:user/bicycles/new" exact component={CreateBicycle} />
-                <Route path="/:user/bicycles/:bike" exact component={FetchBicycle} />
+                <Route path="/:user/bicycles/:bike" exact component={PersonalBicycle} />
                 <Route path="/:user/bicycles/:bike/edit" exact component={UpdateBicycle} />
                 <Route path="/:user/bicycles/:bike/delete" exact component={DeleteBicycle} />
                 <Route path="/:user/bicycles/:bike/:part" exact component={BicyclePart} />
