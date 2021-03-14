@@ -34,29 +34,32 @@ const SEATPOST_CALIPER_DIAMETER = 'seatpostCaliperDiameter';
 const SEATPOST_SIZE = 'seatpostSize';
 
 //PART TYPES
-const FRAME = 'frame';
-const FORK = 'fork';
-const REAR_DERAILLEUR = 'rearDerailleur';
-const FRONT_DERAILLEUR = 'frontDerailleur';
-const CRANK = 'crank';
-const DAMPER = "damper";
-const DISC = "disc";
-const HUB = "hub";
-const RIM = "rim";
-const TYRE = "tyre";
-const WHEEL = "wheel";
-const SADDLE = "saddle";
-const SEATPOST = "seatpost";
-const SEATPOST_CLAMP = "seatpostClamp";
-const CHAINRING = "chainring";
-const CHAIN = "chain";
-const CASSETTE = "cassette";
-const BOTTOM_BRACKET = "bottomBracket";
-const SHIFTER = "shifter";
-const GRIPS = "grips";
-const HANDLEBAR = "handlebar";
-const HEADSET = "headset";
-const STEM = "stem";
+export const FRAME = 'frame';
+export const FORK = 'fork';
+export const REAR_DERAILLEUR = 'rearDerailleur';
+export const FRONT_DERAILLEUR = 'frontDerailleur';
+export const CRANK = 'crank';
+export const DAMPER = "damper";
+export const DISC = "disc";
+export const HUB = "hub";
+export const RIM = "rim";
+export const TYRE = "tyre";
+export const WHEEL = "wheel";
+export const SADDLE = "saddle";
+export const SEATPOST = "seatpost";
+export const SEATPOST_CLAMP = "seatpostClamp";
+export const CHAINRING = "chainring";
+export const CHAIN = "chain";
+export const CASSETTE = "cassette";
+export const BOTTOM_BRACKET = "bottomBracket";
+export const SHIFTER = "shifter";
+export const GRIPS = "grips";
+export const HANDLEBAR = "handlebar";
+export const HEADSET = "headset";
+export const STEM = "stem";
+export const BRAKE_HYDRAULIC = "brakeHydraulic";
+export const BRAKE_CALIPER = "brakeCaliper";
+export const BRAKE_LEVER = "brakeLever";
 
 export const FIELDS = [BRAND, MODEL, SERIES, YEAR, SIZE, WEIGHT, WHEEL_SIZE]
 
@@ -332,13 +335,17 @@ export const SPECIALIZATION = [
     SHIFTER_SPEC,
     GRIPS_SPEC,
     HANDLEBAR_SPEC,
-    HEADSET_SPEC
+    HEADSET_SPEC,
+    BRAKE_HYDRAULIC,
+    BRAKE_CALIPER,
+    BRAKE_HYDRAULIC
 ]
 
 export const PART_LIST = [
     FRAME, FORK, REAR_DERAILLEUR, FRONT_DERAILLEUR, CRANK, DAMPER, 
     DISC, HUB, RIM, TYRE, WHEEL, SADDLE, SEATPOST, SEATPOST_CLAMP, CHAINRING, CHAIN,
-    CASSETTE, BOTTOM_BRACKET, SHIFTER, GRIPS, HANDLEBAR, HEADSET, STEM
+    CASSETTE, BOTTOM_BRACKET, SHIFTER, GRIPS, HANDLEBAR, HEADSET, STEM,
+    BRAKE_CALIPER, BRAKE_HYDRAULIC, BRAKE_LEVER
 ]
 
 export function findSpec(specName) {

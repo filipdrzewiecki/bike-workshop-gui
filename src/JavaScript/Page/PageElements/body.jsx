@@ -17,7 +17,7 @@ import DeleteBicyclePart from '../../Content/Bicycles/deleteBicyclePart.jsx';
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
 //Parts
-import OfficialPartsList from '../../Content/Parts/parts.jsx';
+import OfficialPartsList from '../../Content/Parts/Official/AllParts.jsx';
 import OfficialParts from '../../Content/Parts/Official/PartsList.jsx';
 import FetchPart from '../../Content/Parts/fetchPart.jsx';
 import CreatePart from '../../Content/Parts/createPart.jsx';

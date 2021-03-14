@@ -1,0 +1,47 @@
+.part_card_container {
+    display: flex;
+    width: 100%;
+    text-align: center;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+}
+
+.part_card_container a {
+    margin: 20px;
+    display: inline-block;
+    flex: 0 0 calc(14% - 10px);
+}
+
+.part_card {
+    position: relative;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    width: 100%;
+    height: 80px;
+    -webkit-box-shadow: 3px 3px 9px 1px rgba(0, 0, 0, 0.14);
+    box-shadow: 3px 3px 9px 1px rgba(0, 0, 0, 0.14);
+}
+
+.part_card_picture img {
+    max-width: 80px;
+    max-height: 75px;
+}
+
+.part_card .tooltiptext {
+    background-color: rgba(70, 131, 180, 0.534);
+    visibility: hidden;
+    width: 100%;
+    height: 100%;
+    color: white;
+    text-align: center;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 0%;
+    opacity: 0;
+    transition: opacity 0.4s;
+}
+
+.part_card:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
