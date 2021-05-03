@@ -1,46 +1,64 @@
 import '../../Css/index.css';
-import React, { Component } from 'react';
+import React, { useContext } from 'react';
 import * as partTypes from './PART_TYPES.jsx';
+import { capitalizeFirstLetter } from '../../Page/PageElements/Utils.jsx'
+import { PartContext } from "../api/PartsProvider.jsx";
 
-export function renderParams(filters) {
-    var params = new URLSearchParams();
-    
-    if (filters.currentPage) {
-        params.append('page', filters.currentPage);
-    }
+const PartTypeSelect = (props) => {
+    const partContext = useContext(PartContext);
 
-    for (var key in filters) {
-        var value = filters[key];
-        if (filters.hasOwnProperty(key) && value && partTypes.FIELDS.includes(key)) {
-            params.append(key, value)
-        }
-    }
-    return params;
+    var types = partTypes.PART_LIST;
+    return (
+        <div className="searchBox">
+            <label>Part type</label>
+            <select className="searchBox" name="type" defaultValue={'common'} onChange={(e) => {props.handlePartChange(e); partContext.dispatch(null, e)}}>
+                <option value="common">Any</option>
+                {types.map((type, i) =>
+                    <option key={i} id={type} value={type}>{capitalizeFirstLetter(type)}</option>
+                )}
+            </select>
+        </div>
+    );
 }
 
-export default class SearchBoxes extends Component {
+const SpecBoxes = (props) => {
+    console.log("partTypes part="+props.part)
+    if (props.part) {
+        return (
+            
+            props.fields.map((field, i) =>
+                <div className="searchBox" key={i}>
+                    <label>{capitalizeFirstLetter(field)}</label>
+                    <br></br>
+                    <input type="text" id={field} name={field} onChange={props.handleInputChange} maxLength="20" />
+                </div>
+            )
+        );
+    } else {
+        var searchFields = partTypes.PART_GENERAL_FIELDS;
+        return (
+            searchFields.map((field, i) =>
+                <div className="searchBox" key={i}>
+                    <label>{capitalizeFirstLetter(field)}</label>
+                    <br></br>
+                    <input type="text" id={field} name={field} onChange={props.handleInputChange} maxLength="20" />
+                </div>
+            )
+        );
+    }
+}
 
-    mapSearchBoxes(fields) {
+export default (props) => {
+    const type = props.part;
+    const spec = partTypes.findSpec(type);
+
+    if (spec) {
         return (
             <React.Fragment>
-                {fields.map((field, i) =>
-                    <div className="searchBox" key={i}>
-                        <label>{field}</label>
-                        <br></br>
-                        <input type="text" id={field} name={field} onChange={this.props.handleInputChange} maxLength="20"/>
-                    </div>
-                )}
+                <PartTypeSelect handlePartChange={props.handlePartChange} partType={props.part}/>
+                <SpecBoxes handleInputChange={props.handleInputChange} part={props.part} fields={spec.searchBoxes}/>
             </React.Fragment>
         );
     }
-
-    render() {
-        const type = this.props.type;
-        const spec = partTypes.findSpec(type);
-
-        if (spec) {
-            return this.mapSearchBoxes(spec.searchBoxes);
-        }
-        return [];
-    }
+    return [];
 }

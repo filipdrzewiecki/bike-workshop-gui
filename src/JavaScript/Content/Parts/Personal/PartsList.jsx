@@ -25,6 +25,7 @@ function handleInputChange(event, partType) {
 function handlePartChange(event) {
     console.log("ustawiam czesc="+event.target.value)
     Filters.set("partType", event.target.value)
+    
 }
 
 const FetchParts = () => {
@@ -77,4 +78,4 @@ const FetchParts = () => {
     );
 }
 
-export default () => { return <PartProvider isPersonal={false}><FetchParts /></PartProvider> }
+export default () => { return <PartProvider isPersonal={true}><FetchParts /></PartProvider> }

@@ -1,55 +1,50 @@
 import '../../Css/index.css';
-import React, { Component } from 'react';
+import React  from 'react';
 import * as partTypes from './PART_TYPES.jsx';
 import { Link } from "react-router-dom";
 
-export default class PartsTable extends Component {
 
-    renderContentTable(parts, columns) {
+function renderColumns(parts, columns) {
+    return (
+        <React.Fragment>
+            {parts.map((part) => (
+                <Link to={`/parts/${part.product}/${part.productId}`}>
+                    <div className="bar">
+                        {columns.map((column) => (
+                            <div className="cell" > {part[column]} </div>
+                        ))}
+                    </div>
+                </Link>
+            ) )}
+        </React.Fragment>
+    );
+}
+
+function renderColumnNames(columns) {
+    return (
+        <div className="bar-main">
+            {columns.map((column) => (
+                <div className="cell" > {column.toUpperCase()} </div>
+            ))}
+        </div>
+    );
+
+}
+
+export default (props) => {
+    const type = props.type;
+    const parts = props.parts;
+    console.log("type in XYZ="+type)
+    const spec = partTypes.findSpec(type);
+    var columns = spec.columns;
+
+    if (spec) {
         return (
             <React.Fragment>
-                {this.renderColumnNames(columns)}
-                {this.renderColumns(parts, columns)}
-            </React.Fragment>
-        )
-    }
-
-    renderColumns(parts, columns) {
-        return (
-            <React.Fragment>
-                {parts.map((part, i) => (
-                    <Link to={`/parts/${part.product}/${part.productId}`} key={part.id}>
-                        <div className="bar" key={i}>
-                            {columns.map((column, i) => (
-                                <div className="cell" key={i}> {part[column]} </div>
-                            ))}
-                        </div>
-                    </Link>
-                ))}
+                {renderColumnNames(columns)}
+                {renderColumns(parts, columns)}
             </React.Fragment>
         );
     }
-
-    renderColumnNames(columns) {
-        return (
-            <div className="bar-main">
-                {columns.map((column, i) => (
-                    <div className="cell" key={i}> {column.toUpperCase()} </div>
-                ))}
-            </div>
-        );
-
-    }
-
-    render() {
-        const type = this.props.type;
-        const parts = this.props.parts;
-        const spec = partTypes.findSpec(type);
-
-
-        if (spec) {
-            return this.renderContentTable(parts, spec.columns);
-        }
-        return [];
-    }
+    return [];
 }

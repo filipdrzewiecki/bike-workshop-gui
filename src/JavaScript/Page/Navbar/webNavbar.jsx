@@ -18,9 +18,6 @@ class Navbar extends React.Component {
     }
 
     render() {
-        console.log("navbar stan")
-
-        console.log(this.state)
 
         return (
             <div className="navbar-container" >

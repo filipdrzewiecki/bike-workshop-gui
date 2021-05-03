@@ -17,21 +17,21 @@ import DeleteBicyclePart from '../../Content/Bicycles/deleteBicyclePart.jsx';
 //Bicycles
 import Bicycles from '../../Content/Bicycles/bicycles.jsx';
 //Parts
-import OfficialPartsList from '../../Content/Parts/Official/AllParts.jsx';
 import OfficialParts from '../../Content/Parts/Official/PartsList.jsx';
+import PersonalParts from '../../Content/Parts/Personal/PartsList.jsx';
 import FetchPart from '../../Content/Parts/fetchPart.jsx';
 import CreatePart from '../../Content/Parts/createPart.jsx';
 import AddExistingPartToBicycle from '../../Content/Parts/addExistingPartToBicycle.jsx';
 
 
-const PageBody = () => {
+export default () => {
     return (
         <div className="pageBody">
             <Switch>
                 {/* LOGIN */}
                 <Route path="/login" exact component={LoginPage} />
                 
-                {/* GARAGE */}
+                {/* PERSONAL BICYCLES */}
                 <Route path="/" exact component={PersonalBicycles} />
                 <Route path="/:user/bicycles" exact component={PersonalBicycles} />
                 <Route path="/:user/bicycles/new" exact component={CreateBicycle} />
@@ -42,12 +42,17 @@ const PageBody = () => {
                 <Route path="/:user/bicycles/:bike/:part/new" exact component={AddPartToBike} />
                 <Route path="/:user/bicycles/:bike/:part/delete" exact component={DeleteBicyclePart} />
 
-                {/* BICYCLES */}
+                {/* OFFICIAL BICYCLES */}
                 <Route path="/bicycles" exact component={Bicycles} />
 
-                {/* PARTS */}
-                <Route path="/parts" exact component={OfficialPartsList} />
-                <Route path="/parts/:part" exact component={OfficialParts} />
+                {/* OFFICIAL PARTS */}
+                <Route path="/:user/parts" exact component={PersonalParts} />
+
+
+                {/* OFFICIAL PARTS */}
+                <Route path="/:user/parts" exact component={PersonalParts} />
+
+                <Route path="/parts" exact component={OfficialParts} />
                 <Route path="/parts/:part/new" exact component={CreatePart} />
                 <Route path="/parts/:part/:id" exact component={FetchPart} />
                 <Route path="/parts/:part/:partId/add" exact component={AddExistingPartToBicycle} />
@@ -55,5 +60,3 @@ const PageBody = () => {
         </div>
     );
 }
-
-export default PageBody;

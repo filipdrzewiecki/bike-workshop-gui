@@ -1,5 +1,6 @@
 import React, { useContext } from 'react';
 import { PartContext } from "../api/PartsProvider.jsx";
+import { Loading } from '../../Page/PageElements/Utils.jsx'
 
 function mapParams(page, params) {
     params.set('page', page);
@@ -31,10 +32,12 @@ const PaginationButton = (props) => {
 export default (props) => {
     const partContext = useContext(PartContext);
 
-    const payload = partContext.parts ? partContext.parts.payload : {};
+    if (!partContext.parts) {
+        return <Loading/>
+    }
 
-    var i = payload.number != null ? payload.number : 0;
-    var totalPages = payload.totalPages;
+    var i = partContext.parts.number != null ? partContext.parts.number : 0;
+    var totalPages = partContext.parts.totalPages;
 
     var queryParams = props.params;
 

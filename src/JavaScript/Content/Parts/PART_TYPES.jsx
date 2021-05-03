@@ -5,6 +5,7 @@ const STEERING_SECTION = 'Steering';
 const OTHER_SECTION = 'Other';
 
 //FIELDS
+const PRODUCT = 'product';
 const BRAND = 'brand';
 const SERIES = 'series';
 const MODEL = 'model';
@@ -60,8 +61,9 @@ export const STEM = "stem";
 export const BRAKE_HYDRAULIC = "brakeHydraulic";
 export const BRAKE_CALIPER = "brakeCaliper";
 export const BRAKE_LEVER = "brakeLever";
+export const COMMON = 'common';
 
-export const FIELDS = [BRAND, MODEL, SERIES, YEAR, SIZE, WEIGHT, WHEEL_SIZE]
+export const PART_GENERAL_FIELDS = [BRAND, MODEL, SERIES, YEAR]
 
 export const FRAME_SPEC = {
     name: FRAME,
@@ -313,6 +315,16 @@ export const STEM_SPEC = {
     form: []
 }
 
+export const COMMON_SPEC = {
+    name: COMMON,
+    searchBoxes: [BRAND, MODEL, SERIES, YEAR],
+    columns: [PRODUCT, BRAND, MODEL, SERIES, WEIGHT, YEAR],
+    sections: [
+        {name: GENERAL_SECTION, fields: [TYPE, SIZE, WEIGHT]}
+    ],
+    form: []
+}
+
 export const SPECIALIZATION = [
     FRAME_SPEC, 
     FORK_SPEC, 
@@ -338,7 +350,8 @@ export const SPECIALIZATION = [
     HEADSET_SPEC,
     BRAKE_HYDRAULIC,
     BRAKE_CALIPER,
-    BRAKE_HYDRAULIC
+    BRAKE_HYDRAULIC,
+    COMMON_SPEC
 ]
 
 export const PART_LIST = [

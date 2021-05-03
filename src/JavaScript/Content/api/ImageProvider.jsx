@@ -9,7 +9,6 @@ export const ImageContext = createContext();
 const ImageProvider = (props) => {
   const [image, dispatch] = useReducer(ImageReducer);
 
-
   function fetchImage(response) {
     return {
       type: API_ACTIONS.FETCH_IMAGE,

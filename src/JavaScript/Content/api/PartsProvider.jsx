@@ -1,30 +1,34 @@
-import React, { useReducer, createContext, useEffect } from "react";
-import { useParams } from 'react-router-dom';
+import React, { createContext, useEffect, useState } from "react";
 import { authHeader } from '../../Page/Security/authHeader';
-import * as API_ACTIONS from './apiActions.jsx'
-import PartReducer from '../../reducers/partReducer.jsx';
 import bikeWorkshop from './bike-workshop-service.jsx'
+import { getUserName }  from '../../Page/Security/authHeader';
+import { getQueryParams } from '../../Page/PageElements/Utils.jsx'
 
 export const PartContext = createContext();
 
 const PartProvider = (props) => {
-  const [parts, dispatch] = useReducer(PartReducer);
+  const [parts, dispatch] = useState();
+  const [filters, setFilters] = useState({'partType': 'common'});
 
-  const partType = useParams().part;
+  const dispatchParts = (fltrs, event) => {
+    var filtersMap = fltrs == null ? new Map() : fltrs;
 
-  function fetchParts(response) {
-    return {
-      type: API_ACTIONS.FETCH_PARTS_WITH_FILTERS,
-      payload: response.data
+    if (event != null) {
+      filtersMap.set("partType", event.target.value)
     }
+
+    var URI = props.isPersonal===true ? `/${getUserName()}/parts` : '/parts';
+
+    bikeWorkshop.get(URI + '?' + getQueryParams(filtersMap), {headers: authHeader()})
+    .then((response) => {
+      dispatch(response.data);
+    });
   }
 
-  const dispatchParts = (filters) => {
-    bikeWorkshop.get(`/parts/${partType}?` + filters, {headers: authHeader()})
-    .then((response) => {
-      dispatch(fetchParts(response));
-    });
-  };
+  const setFiltersProvider = (event) => {
+    console.log("event w PROVIDERZE=" + event.target.value)
+    filters.set("partType", event.target.value)
+  }
 
   useEffect(dispatchParts, []);
 
@@ -32,7 +36,9 @@ const PartProvider = (props) => {
     <PartContext.Provider
       value={{
         parts: parts,
-        dispatch: dispatchParts
+        dispatch: dispatchParts,
+        filters: filters,
+        setFilters: setFiltersProvider
       }}>
 
       {props.children}

@@ -1,7 +1,6 @@
 import '../../../Css/index.css';
 import './BicycleList.css'
 import React, { useContext } from 'react';
-import Page from '../../../Page/PageElements/menu.jsx';
 import { Link } from "react-router-dom";
 import { getUserName } from '../../../Page/Security/authHeader';
 import BicyclePlaceholderIcon from "../../../../resources/icon/bicycle-icon.png";
@@ -53,14 +52,7 @@ const PersonalBicyclesList = () => {
   }
   const bicycles = context.bicycles.payload;
   return (
-    <Page
-      isBackButton='false'
-      paragraphs={[
-        <div>
-          <Bicycles bicycles={bicycles} />
-        </div>,
-      ]}
-    />
+      <Bicycles bicycles={bicycles} />
   );
 }
 
